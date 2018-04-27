@@ -18,4 +18,9 @@ public class MainPage extends AppCompatActivity {
         Intent intent = new Intent(this, StepCounter.class);
         startActivity(intent);
     }
+
+    public void openBMICalculator(View view){
+        Intent intent = new Intent(this, bmi_calculator.class);
+        startActivity(intent);
+    }
 }
