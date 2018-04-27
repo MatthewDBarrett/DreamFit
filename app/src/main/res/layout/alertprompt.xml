@@ -7,7 +7,7 @@
 
     <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
         android:id="@+id/layout_root"
-        android:layout_width="383dp"
+        android:layout_width="404dp"
         android:layout_height="117dp"
         android:orientation="vertical"
         android:padding="10dp"
@@ -23,7 +23,8 @@
         <EditText
             android:id="@+id/editTextResult"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content">
+            android:layout_height="wrap_content"
+            android:inputType="numberDecimal">
 
             <requestFocus />
 
