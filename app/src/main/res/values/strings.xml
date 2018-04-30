@@ -1,0 +1,15 @@
+<resources>
+    <string name="app_name">Dream-Fit</string>
+    <string name="button">Open</string>
+    <string name="step_counter">Step Counter</string>
+    <string name="BMI_calculator">BMI Calculator</string>
+    <string name="progress1">New day, new goals!</string>
+    <string name="progress2">Quarter-way there!</string>
+    <string name="progress3">Keep at it! Half-way there!</string>
+    <string name="progress4">You\'ve reached your goal! Amazing!</string>
+    <string name="progress5">Over and beyond!</string>
+    <string name="kilogram_BMI">Weight (kg)</string>
+    <string name="centimeter_BMI">Height (cm)</string>
+    <string name="calculate">Calculate</string>
+    <string name="prompt_BMI">Enter your weight and height</string>
+</resources>
