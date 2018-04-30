@@ -6,43 +6,31 @@
     android:layout_height="match_parent"
     tools:context=".MainPage">
 
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Hello World!"
-        android:textSize="30sp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.032" />
-
     <ImageButton
         android:id="@+id/stepCounter"
         android:layout_width="159dp"
         android:layout_height="105dp"
-        android:layout_marginStart="16dp"
-        android:background="@android:color/transparent"
+        android:layout_marginStart="32dp"
+        android:background="@color/colorPrimary"
         android:contentDescription="@string/step_counter"
+        android:cropToPadding="false"
         android:onClick="openStepCounter"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="@color/colorPrimary" />
+        app:srcCompat="@mipmap/step_counter" />
 
     <ImageButton
         android:id="@+id/bmiCalculator"
         android:layout_width="159dp"
         android:layout_height="105dp"
-        android:layout_marginEnd="16dp"
-        android:background="@android:color/transparent"
+        android:layout_marginEnd="32dp"
+        android:background="@color/colorPrimaryDark"
         android:contentDescription="@string/BMI_calculator"
         android:onClick="openBMICalculator"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="@color/colorPrimaryDark" />
+        app:srcCompat="@mipmap/bmi_calculator" />
 
 </android.support.constraint.ConstraintLayout>
