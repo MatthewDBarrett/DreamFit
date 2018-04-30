@@ -6,6 +6,19 @@
     android:layout_height="match_parent"
     tools:context=".MainPage">
 
+    <Button
+        android:id="@+id/push_button"
+        android:layout_width="150dp"
+        android:layout_height="150dp"
+        android:layout_marginTop="32dp"
+        android:background="@drawable/button_bg_round"
+        android:onClick="openProfilePage"
+        android:padding="15dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@mipmap/step_counter" />
+
     <ImageButton
         android:id="@+id/stepCounter"
         android:layout_width="159dp"
