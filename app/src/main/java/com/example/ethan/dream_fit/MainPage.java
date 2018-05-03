@@ -23,4 +23,9 @@ public class MainPage extends AppCompatActivity {
         Intent intent = new Intent(this, bmi_calculator.class);
         startActivity(intent);
     }
+
+    public void openProfilePage(View view){
+        Intent intent = new Intent(this, profile_page.class);
+        startActivity(intent);
+    }
 }
