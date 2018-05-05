@@ -6,22 +6,9 @@
     android:layout_height="match_parent"
     tools:context=".MainPage">
 
-    <Button
-        android:id="@+id/push_button"
-        android:layout_width="150dp"
-        android:layout_height="150dp"
-        android:layout_marginTop="32dp"
-        android:background="@drawable/button_bg_round"
-        android:onClick="openProfilePage"
-        android:padding="15dp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="@mipmap/step_counter" />
-
     <ImageButton
         android:id="@+id/stepCounter"
-        android:layout_width="159dp"
+        android:layout_width="128dp"
         android:layout_height="105dp"
         android:layout_marginStart="32dp"
         android:background="@color/colorPrimary"
@@ -35,7 +22,7 @@
 
     <ImageButton
         android:id="@+id/bmiCalculator"
-        android:layout_width="159dp"
+        android:layout_width="128dp"
         android:layout_height="105dp"
         android:layout_marginEnd="32dp"
         android:background="@color/colorPrimaryDark"
@@ -45,5 +32,17 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:srcCompat="@mipmap/bmi_calculator" />
+
+    <ImageButton
+        android:id="@+id/profilePic"
+        android:layout_width="200dp"
+        android:layout_height="200dp"
+        android:layout_marginTop="16dp"
+        android:background="@color/bmi_calculator_background"
+        android:onClick="openProfilePage"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@mipmap/default_profile_foreground" />
 
 </android.support.constraint.ConstraintLayout>

@@ -34,7 +34,8 @@
                                   <option name="values">
                                     <map>
                                       <entry key="assetType" value="IMAGE" />
-                                      <entry key="imageAsset" value="C:\Users\ethan\Desktop\PC\Creations\STEPCOUNTER.png" />
+                                      <entry key="imageAsset" value="C:\Users\ethan\DreamFit\app\src\main\defaultprofile.bmp" />
+                                      <entry key="outputName" value="Default_profile" />
                                     </map>
                                   </option>
                                 </PersistentState>
@@ -62,8 +63,8 @@
                                     <map>
                                       <entry key="backgroundAssetType" value="COLOR" />
                                       <entry key="backgroundColor" value="30a4d7" />
-                                      <entry key="foregroundImage" value="C:\Users\ethan\Desktop\PC\Creations\STEPCOUNTER.png" />
-                                      <entry key="outputName" value="step_counter" />
+                                      <entry key="foregroundImage" value="C:\Users\ethan\DreamFit\app\src\main\defaultprofile.bmp" />
+                                      <entry key="outputName" value="default_profile" />
                                       <entry key="showSafeZone" value="false" />
                                       <entry key="webIconShape" value="CIRCLE" />
                                     </map>
@@ -73,12 +74,22 @@
                             </entry>
                           </map>
                         </option>
+                        <option name="values">
+                          <map>
+                            <entry key="outputIconType" value="ACTIONBAR" />
+                          </map>
+                        </option>
                       </PersistentState>
                     </value>
                   </entry>
                 </map>
               </option>
             </PersistentState>
+          </value>
+        </entry>
+        <entry key="vectorWizard">
+          <value>
+            <PersistentState />
           </value>
         </entry>
       </map>
