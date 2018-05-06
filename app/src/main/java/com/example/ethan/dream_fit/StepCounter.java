@@ -3,6 +3,10 @@ package com.example.ethan.dream_fit;
 import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
+import android.hardware.Sensor;
+import android.hardware.SensorEvent;
+import android.hardware.SensorEventListener;
+import android.hardware.SensorManager;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -12,22 +16,70 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.budiyev.android.circularprogressbar.CircularProgressBar;
 
 import static android.view.View.INVISIBLE;
 
-public class StepCounter extends AppCompatActivity {
+public class StepCounter extends AppCompatActivity implements SensorEventListener {
 
     private int stepInt = 0;
     private int limitAmnt = 1000;
     final Context context = this;
 
+    //TextView tv_step;                   //STEP COUNTER
+
+    SensorManager sensorManager;        //STEP COUNTER
+
+    boolean running = false;            //STEP COUNTER
+
+    @Override
+    protected void onResume() {
+        super.onResume();
+        running = true;
+        Sensor countSensor = sensorManager.getDefaultSensor(Sensor.TYPE_STEP_COUNTER);
+        if(countSensor != null){
+            sensorManager.registerListener(this, countSensor, SensorManager.SENSOR_DELAY_UI);
+        } else {
+            Toast.makeText(this, "Sensor not found", Toast.LENGTH_SHORT).show();
+        }
+    }
+
+    @Override
+    protected void onPause() {
+        super.onPause();
+        running = false;
+        //if you unregister the hardware will stop detecting steps
+        //sensorManager.unregisterListener(this);
+    }
+
+    @Override
+    public void onSensorChanged(SensorEvent sensorEvent) {
+        if(running){
+
+            stepInt += 1;
+            TextView textElement = (TextView) findViewById(R.id.sampleText3);
+            textElement.setText(String.valueOf(stepInt));
+            //motivationDecision();
+            changeProgress(stepInt, limitAmnt);
+
+            //tv_step.setText(String.valueOf(sensorEvent.values[0]));
+        }
+    }
+
+    @Override
+    public void onAccuracyChanged(Sensor sensor, int i) {
+
+    }
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_step_counter);
+
+        //tv_step = (TextView) findViewById(R.id.tv_step);                                 //STEP COUNTER
+        sensorManager = (SensorManager) getSystemService(Context.SENSOR_SERVICE);        //STEP COUNTER
 
         //TextViews of the text elements on the screen
         TextView textElement = (TextView) findViewById(R.id.sampleText3);
@@ -136,4 +188,5 @@ public class StepCounter extends AppCompatActivity {
             motivation.setText(R.string.progress5);
         }
     }
+
 }
