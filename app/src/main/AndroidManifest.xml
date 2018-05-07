@@ -30,15 +30,15 @@
             android:name=".bmi_calculator"
             android:parentActivityName=".MainPage" />
         <activity
-            android:name=".calorie_tracker"
+            android:name=".calorie_tracker_add_item"
             android:parentActivityName=".MainPage" />
         <activity
-            android:name=".calorie_tracker_2"
-            android:parentActivityName=".calorie_tracker" />
+            android:name=".calorie_tracker_add_list"
+            android:parentActivityName=".calorie_tracker_add_item" />
         <activity
             android:name=".profile_page"
             android:parentActivityName=".MainPage"></activity>
-        <activity android:name=".calorie_tracker_3"></activity>
+        <activity android:name=".calorie_tracker_main_page"></activity>
     </application>
 
 </manifest>
