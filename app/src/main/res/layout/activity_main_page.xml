@@ -10,14 +10,16 @@
         android:id="@+id/stepCounter"
         android:layout_width="128dp"
         android:layout_height="105dp"
+        android:layout_marginBottom="8dp"
         android:layout_marginStart="32dp"
         android:background="@color/colorPrimary"
         android:contentDescription="@string/step_counter"
         android:cropToPadding="false"
         android:onClick="openStepCounter"
-        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintBottom_toTopOf="@+id/imageButton"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.827"
         app:srcCompat="@mipmap/step_counter" />
 
     <ImageButton
@@ -25,11 +27,14 @@
         android:layout_width="128dp"
         android:layout_height="105dp"
         android:layout_marginEnd="32dp"
+        android:layout_marginStart="8dp"
         android:background="@color/colorPrimaryDark"
         android:contentDescription="@string/BMI_calculator"
         android:onClick="openBMICalculator"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.964"
+        app:layout_constraintStart_toEndOf="@+id/stepCounter"
         app:layout_constraintTop_toTopOf="parent"
         app:srcCompat="@mipmap/bmi_calculator" />
 
@@ -44,5 +49,20 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:srcCompat="@mipmap/default_profile_foreground" />
+
+    <ImageButton
+        android:id="@+id/imageButton"
+        android:layout_width="128dp"
+        android:layout_height="105dp"
+        android:layout_marginBottom="64dp"
+        android:layout_marginStart="32dp"
+        android:onClick="openCalorieTracker"
+        app:layout_constraintBottom_toBottomOf="parent"
+
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:srcCompat="@drawable/button_bg_round" />
+
 
 </android.support.constraint.ConstraintLayout>
