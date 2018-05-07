@@ -39,7 +39,7 @@ public class MainPage extends AppCompatActivity {
     }
 
     public void openCalorieTracker(View view){
-        Intent intent = new Intent(this, calorie_tracker.class);
+        Intent intent = new Intent(this, calorie_tracker_3.class);
         startActivity(intent);
     }
 }

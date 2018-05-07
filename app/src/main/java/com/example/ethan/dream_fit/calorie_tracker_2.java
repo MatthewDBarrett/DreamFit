@@ -14,9 +14,8 @@ public class calorie_tracker_2 extends AppCompatActivity {
         setContentView(R.layout.activity_calorie_tracker_2);
     }
 
+    public void onAdd(View view){
 
-
-
-
+    }
 }
 

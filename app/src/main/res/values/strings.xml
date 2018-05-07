@@ -12,4 +12,7 @@
     <string name="centimeter_BMI">Height (cm)</string>
     <string name="calculate">Calculate</string>
     <string name="prompt_BMI">Enter your weight and height</string>
+    <string name="save">Save</string>
+    <string name="add">Add</string>
+    <string name="remove">Remove</string>
 </resources>

@@ -63,8 +63,9 @@
                                     <map>
                                       <entry key="backgroundAssetType" value="COLOR" />
                                       <entry key="backgroundColor" value="30a4d7" />
-                                      <entry key="foregroundImage" value="C:\Users\ethan\DreamFit\app\src\main\defaultprofile.bmp" />
-                                      <entry key="outputName" value="default_profile" />
+                                      <entry key="foregroundImage" value="C:\Users\ethan\DreamFit\app\src\main\bmi_calculator.png" />
+                                      <entry key="foregroundLayerName" value="bmi_calculator_dark_forground" />
+                                      <entry key="outputName" value="bmi_calculator_dark" />
                                       <entry key="showSafeZone" value="false" />
                                       <entry key="webIconShape" value="CIRCLE" />
                                     </map>
@@ -72,11 +73,6 @@
                                 </PersistentState>
                               </value>
                             </entry>
-                          </map>
-                        </option>
-                        <option name="values">
-                          <map>
-                            <entry key="outputIconType" value="ACTIONBAR" />
                           </map>
                         </option>
                       </PersistentState>

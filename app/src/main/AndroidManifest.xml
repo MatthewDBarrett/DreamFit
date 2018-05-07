@@ -28,20 +28,17 @@
         </activity>
         <activity
             android:name=".bmi_calculator"
-            android:parentActivityName=".MainPage"></activity>
-
-
+            android:parentActivityName=".MainPage" />
         <activity
             android:name=".calorie_tracker"
-            android:parentActivityName=".MainPage"></activity>
+            android:parentActivityName=".MainPage" />
         <activity
             android:name=".calorie_tracker_2"
-            android:parentActivityName=".calorie_tracker"></activity>
-
-        <activity android:name=".profile_page"
-                  android:parentActivityName=".MainPage">
-        </activity>
-
+            android:parentActivityName=".calorie_tracker" />
+        <activity
+            android:name=".profile_page"
+            android:parentActivityName=".MainPage"></activity>
+        <activity android:name=".calorie_tracker_3"></activity>
     </application>
 
 </manifest>

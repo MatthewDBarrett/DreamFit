@@ -26,9 +26,8 @@ public class calorie_tracker extends AppCompatActivity {
     }
 
     public void onSave(View view) {
-        Intent intent = new Intent(this, calorie_tracker_2.class);
-        startActivity(intent);
-                                    }
+        //Add functionality later
+    }
 
 
 
