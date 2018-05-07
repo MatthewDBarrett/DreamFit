@@ -28,7 +28,7 @@
         android:layout_height="105dp"
         android:layout_marginEnd="32dp"
         android:layout_marginStart="8dp"
-        android:background="@color/colorPrimaryDark"
+        android:background="@color/calorie_counter_background"
         android:contentDescription="@string/BMI_calculator"
         android:onClick="openBMICalculator"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -37,7 +37,7 @@
         app:layout_constraintStart_toEndOf="@+id/stepCounter"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.532"
-        app:srcCompat="@mipmap/bmi_calculator_dark" />
+        app:srcCompat="@mipmap/bmi_calculator" />
 
     <ImageButton
         android:id="@+id/profilePic"
@@ -57,13 +57,14 @@
         android:layout_height="105dp"
         android:layout_marginBottom="64dp"
         android:layout_marginStart="32dp"
+        android:background="@color/calorie_counter_background"
         android:onClick="openCalorieTracker"
-        app:layout_constraintBottom_toBottomOf="parent"
 
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:srcCompat="@drawable/button_bg_round" />
+        app:srcCompat="@mipmap/calorie_counter" />
 
 
 </android.support.constraint.ConstraintLayout>

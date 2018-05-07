@@ -63,9 +63,8 @@
                                     <map>
                                       <entry key="backgroundAssetType" value="COLOR" />
                                       <entry key="backgroundColor" value="30a4d7" />
-                                      <entry key="foregroundImage" value="C:\Users\ethan\DreamFit\app\src\main\bmi_calculator.png" />
-                                      <entry key="foregroundLayerName" value="bmi_calculator_dark_forground" />
-                                      <entry key="outputName" value="bmi_calculator_dark" />
+                                      <entry key="foregroundImage" value="C:\Users\ethan\DreamFit\app\src\main\calorie_counter.png" />
+                                      <entry key="outputName" value="calorie_counter" />
                                       <entry key="showSafeZone" value="false" />
                                       <entry key="webIconShape" value="CIRCLE" />
                                     </map>
