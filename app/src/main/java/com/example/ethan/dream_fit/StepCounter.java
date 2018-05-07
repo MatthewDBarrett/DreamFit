@@ -44,6 +44,7 @@ public class StepCounter extends AppCompatActivity implements SensorEventListene
         } else {
             Toast.makeText(this, "Sensor not found", Toast.LENGTH_SHORT).show();
         }
+
     }
 
     @Override
