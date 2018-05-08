@@ -156,16 +156,6 @@ public class StepCounter extends AppCompatActivity implements SensorEventListene
         //motivationDecision();
     }
 
-    public void onIncStep(View view){
-        //Replace this if statement with the appropriate checking mechanism/function to detect steps
-        stepInt += 30;
-        TextView textElement = (TextView) findViewById(R.id.sampleText3);
-        textElement.setText(String.valueOf(stepInt));
-        //motivationDecision();
-        changeProgress(stepInt, limitAmnt);
-
-    }
-
     private void changeProgress(int step, int limit){
         CircularProgressBar progressBar = findViewById(R.id.progress_bar);
         progressBar.setProgress((float)(100 * step/ limit));

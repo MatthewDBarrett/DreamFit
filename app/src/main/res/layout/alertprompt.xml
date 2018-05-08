@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <android.support.constraint.ConstraintLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent">
@@ -9,9 +10,11 @@
         android:id="@+id/layout_root"
         android:layout_width="404dp"
         android:layout_height="117dp"
+        android:layout_marginEnd="6dp"
         android:orientation="vertical"
         android:padding="10dp"
-        tools:layout_editor_absoluteX="1dp">
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
 
         <TextView
             android:id="@+id/textView1"
@@ -24,6 +27,7 @@
             android:id="@+id/editTextResult"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:drawableLeft="@drawable/black_step"
             android:inputType="numberDecimal">
 
             <requestFocus />

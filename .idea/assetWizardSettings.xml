@@ -34,8 +34,8 @@
                                   <option name="values">
                                     <map>
                                       <entry key="assetType" value="IMAGE" />
-                                      <entry key="imageAsset" value="C:\Users\ethan\DreamFit\app\src\main\defaultprofile.bmp" />
-                                      <entry key="outputName" value="Default_profile" />
+                                      <entry key="imageAsset" value="C:\Users\ethan\DreamFit\app\src\main\black step.png" />
+                                      <entry key="outputName" value="black_step" />
                                     </map>
                                   </option>
                                 </PersistentState>
@@ -62,9 +62,9 @@
                                   <option name="values">
                                     <map>
                                       <entry key="backgroundAssetType" value="COLOR" />
-                                      <entry key="backgroundColor" value="30a4d7" />
-                                      <entry key="foregroundImage" value="C:\Users\ethan\DreamFit\app\src\main\calorie_counter.png" />
-                                      <entry key="outputName" value="calorie_counter" />
+                                      <entry key="backgroundColor" value="ffffff" />
+                                      <entry key="foregroundImage" value="C:\Users\ethan\DreamFit\app\src\main\black step.png" />
+                                      <entry key="outputName" value="black_step" />
                                       <entry key="showSafeZone" value="false" />
                                       <entry key="webIconShape" value="CIRCLE" />
                                     </map>
@@ -72,6 +72,11 @@
                                 </PersistentState>
                               </value>
                             </entry>
+                          </map>
+                        </option>
+                        <option name="values">
+                          <map>
+                            <entry key="outputIconType" value="ACTIONBAR" />
                           </map>
                         </option>
                       </PersistentState>
