@@ -59,7 +59,7 @@
         android:layout_marginStart="32dp"
         android:background="@color/calorie_counter_background"
         android:onClick="openCalorieTracker"
-
+ 
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
