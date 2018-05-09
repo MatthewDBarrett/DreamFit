@@ -37,4 +37,9 @@ public class MainPage extends AppCompatActivity {
         Intent intent = new Intent(this, calorie_tracker_main_page.class);
         startActivity(intent);
     }
+
+    public void openSettings(View view){
+        Intent intent = new Intent(this, settings_page.class);
+        startActivity(intent);
+    }
 }

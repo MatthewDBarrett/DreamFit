@@ -39,6 +39,9 @@
             android:name=".profile_page"
             android:parentActivityName=".MainPage"></activity>
         <activity android:name=".calorie_tracker_main_page"></activity>
+        <activity
+            android:name=".settings_page"
+            android:parentActivityName=".MainPage" />
     </application>
 
 </manifest>
