@@ -148,11 +148,59 @@ public class StepCounter extends AppCompatActivity implements SensorEventListene
     }
 
     public void onReset(View view){
-        stepInt = 0;
-        TextView textElement = (TextView) findViewById(R.id.sampleText3);
-        textElement.setText(String.valueOf(stepInt));
-        CircularProgressBar progressBar = findViewById(R.id.progress_bar);
-        changeProgress(stepInt,limitAmnt);
+
+        Button changeButton = (Button) findViewById(R.id.reset);
+
+        //prompts class
+        changeButton.setOnClickListener(new View.OnClickListener() {
+
+            @Override
+            public void onClick(View arg0) {
+
+                // get the view
+                LayoutInflater li = LayoutInflater.from(context);
+                View promptsView = li.inflate(R.layout.warning_reset, null);
+
+                AlertDialog.Builder alertDialogBuilder = new AlertDialog.Builder(
+                        context);
+
+                // set prompts.xml to alertdialog builder
+                alertDialogBuilder.setView(promptsView);
+
+                final EditText userInput = (EditText) promptsView
+                        .findViewById(R.id.editTextResult);
+
+                // set dialog message
+                alertDialogBuilder
+                        .setCancelable(false)
+                        .setPositiveButton("OK",
+                                new DialogInterface.OnClickListener() {
+                                    public void onClick(DialogInterface dialog,int id) {
+                                        // get user input and set it to result
+                                        // edit text
+                                        stepInt = 0;
+                                        TextView textElement = (TextView) findViewById(R.id.sampleText3);
+                                        textElement.setText(String.valueOf(stepInt));
+                                        CircularProgressBar progressBar = findViewById(R.id.progress_bar);
+                                        changeProgress(stepInt,limitAmnt);
+                                    }
+                                })
+                        .setNegativeButton("Cancel",
+                                new DialogInterface.OnClickListener() {
+                                    public void onClick(DialogInterface dialog,int id) {
+                                        dialog.cancel();
+                                    }
+                                });
+
+                // create alert dialog
+                AlertDialog alertDialog = alertDialogBuilder.create();
+
+                // show it
+                alertDialog.show();
+
+            }
+        });
+
         //motivationDecision();
     }
 

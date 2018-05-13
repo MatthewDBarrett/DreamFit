@@ -16,7 +16,7 @@
         android:contentDescription="@string/step_counter"
         android:cropToPadding="false"
         android:onClick="openStepCounter"
-        app:layout_constraintBottom_toTopOf="@+id/imageButton"
+        app:layout_constraintBottom_toTopOf="@+id/calorieCounter"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.827"
@@ -52,7 +52,7 @@
         app:srcCompat="@mipmap/default_profile_foreground" />
 
     <ImageButton
-        android:id="@+id/imageButton"
+        android:id="@+id/calorieCounter"
         android:layout_width="128dp"
         android:layout_height="105dp"
         android:layout_marginBottom="64dp"
@@ -67,9 +67,9 @@
         app:srcCompat="@mipmap/calorie_counter" />
 
     <ImageButton
-        android:id="@+id/button2"
-        android:layout_width="125dp"
-        android:layout_height="125dp"
+        android:id="@+id/settingsButton"
+        android:layout_width="128dp"
+        android:layout_height="105dp"
         android:layout_marginBottom="8dp"
         android:layout_marginEnd="8dp"
         android:layout_marginStart="8dp"
@@ -79,7 +79,8 @@
         android:text="@string/settings"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="@+id/imageButton"
+        app:layout_constraintHorizontal_bias="0.727"
+        app:layout_constraintStart_toEndOf="@+id/calorieCounter"
         app:layout_constraintTop_toBottomOf="@+id/bmiCalculator" />
 
 
