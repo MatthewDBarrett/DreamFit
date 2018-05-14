@@ -38,19 +38,40 @@ public class calorie_tracker_add_item extends AppCompatActivity {
                 String thisCalories = calorie.getText().toString();
 
                 //call add data function in database helper
-                boolean insertData = calories_Tracker_DB.addData(thisDescription, thisCalories);
+                if (description.length() != 0 && calorie.length() != 0) {
 
-                if (insertData == true) {
-                    Toast.makeText(calorie_tracker_add_item.this, "yo! calories tracked", Toast.LENGTH_LONG).show();
-                } else {
-                    Toast.makeText(calorie_tracker_add_item.this, "Oops, u dogged wrong info", Toast.LENGTH_LONG).show();
+                    //This will only works if user enters everything in the edit text fields
+                    addData(thisDescription,thisCalories);
+
+                    //clear out the text fields
+                    description.setText("");
+                    calorie.setText("");
+
+
+                } else if (description.length() == 0 && calorie.length() == 0) {
+                    Toast.makeText(calorie_tracker_add_item.this, "Please! add food item to track ", Toast.LENGTH_LONG).show();
                 }
-
+                  else if (description.length() == 0 && calorie.length() != 0) {
+                    Toast.makeText(calorie_tracker_add_item.this, "You! forgot to add description", Toast.LENGTH_LONG).show();
+                } else if (description.length() != 0 && calorie.length() == 0) {
+                    Toast.makeText(calorie_tracker_add_item.this, "You! forgot to add calories", Toast.LENGTH_LONG).show();
+                }
             }
-
         });
     }
+
+    public void addData(String newDescription, String newCalorie){
+        // this will add data to the database
+        boolean insertData = calories_Tracker_DB.addData(newDescription, newCalorie);
+        if (insertData == true) {
+            Toast.makeText(calorie_tracker_add_item.this, "yo! calories tracked", Toast.LENGTH_LONG).show();
+        } else {
+            Toast.makeText(calorie_tracker_add_item.this, "Oops, u dogged wrong info", Toast.LENGTH_LONG).show();
+        }
+
+    }
 }
+
 
 
 
