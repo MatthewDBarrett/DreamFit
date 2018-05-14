@@ -9,7 +9,7 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".MainPage">
+        <activity android:name=".MainPage" android:screenOrientation="portrait">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -17,6 +17,7 @@
             </intent-filter>
         </activity>
         <activity
+            android:screenOrientation="portrait"
             android:name=".StepCounter"
             android:parentActivityName=".MainPage">
 
@@ -27,11 +28,23 @@
         </activity>
         <activity
             android:name=".bmi_calculator"
+            android:parentActivityName=".MainPage" />
+        <activity
+            android:name=".calorie_tracker_add_item"
+            android:parentActivityName=".calorie_tracker_add_list" />
+        <activity
+            android:name=".calorie_tracker_add_list"
+            android:parentActivityName=".calorie_tracker_main_page" />
+        <activity
+            android:name=".profile_page"
             android:parentActivityName=".MainPage"></activity>
-        <activity android:name=".profile_page"
-                  android:parentActivityName=".MainPage">
+        <activity
+            android:name=".calorie_tracker_main_page"
+            android:parentActivityName=".MainPage">
         </activity>
-
+        <activity
+            android:name=".settings_page"
+            android:parentActivityName=".MainPage" />
     </application>
 
 </manifest>

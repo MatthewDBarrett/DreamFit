@@ -6,4 +6,36 @@
     android:layout_height="match_parent"
     tools:context=".profile_page">
 
+    <ImageButton
+        android:id="@+id/profileimg"
+        android:layout_width="143dp"
+        android:layout_height="143dp"
+        android:layout_marginTop="32dp"
+        android:background="@color/calorie_counter_background"
+        android:scaleType="fitCenter"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.498"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@mipmap/default_profile" />
+
+    <RelativeLayout
+        android:id="@+id/activity_main"
+        android:layout_width="379dp"
+        android:layout_height="399dp"
+        android:layout_marginBottom="8dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="21dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/profileimg"
+        tools:context="com.example.brandonmain.listviewexample1.MainActivity">
+
+        <ListView
+            android:id="@+id/results_listview"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" />
+    </RelativeLayout>
 </android.support.constraint.ConstraintLayout>
