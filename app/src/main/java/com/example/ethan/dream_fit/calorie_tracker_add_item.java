@@ -29,10 +29,10 @@ public class calorie_tracker_add_item extends AppCompatActivity {
     }
 
     public void onSave(View v) {
-        saveBtn.setOnClickListener(new View.OnClickListener() {
+        //saveBtn.setOnClickListener(new View.OnClickListener() {
 
-            @Override
-            public void onClick(View v) {
+            //@Override
+            //public void onClick(View v) {
 
                 String thisDescription = description.getText().toString();
                 String thisCalories = calorie.getText().toString();
@@ -56,8 +56,8 @@ public class calorie_tracker_add_item extends AppCompatActivity {
                 } else if (description.length() != 0 && calorie.length() == 0) {
                     Toast.makeText(calorie_tracker_add_item.this, "You! forgot to add calories", Toast.LENGTH_LONG).show();
                 }
-            }
-        });
+            //}
+        //});
     }
 
     public void addData(String newDescription, String newCalorie){
