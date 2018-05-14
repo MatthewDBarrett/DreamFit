@@ -31,14 +31,17 @@
             android:parentActivityName=".MainPage" />
         <activity
             android:name=".calorie_tracker_add_item"
-            android:parentActivityName=".MainPage" />
+            android:parentActivityName=".calorie_tracker_add_list" />
         <activity
             android:name=".calorie_tracker_add_list"
-            android:parentActivityName=".calorie_tracker_add_item" />
+            android:parentActivityName=".calorie_tracker_main_page" />
         <activity
             android:name=".profile_page"
             android:parentActivityName=".MainPage"></activity>
-        <activity android:name=".calorie_tracker_main_page"></activity>
+        <activity
+            android:name=".calorie_tracker_main_page"
+            android:parentActivityName=".MainPage">
+        </activity>
         <activity
             android:name=".settings_page"
             android:parentActivityName=".MainPage" />
