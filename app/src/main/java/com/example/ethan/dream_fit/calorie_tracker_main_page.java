@@ -13,12 +13,20 @@ public class calorie_tracker_main_page extends AppCompatActivity {
         setContentView(R.layout.activity_calorie_tracker_main_page);
     }
 
+
+    @Override
+    protected void onResume() {
+        super.onResume();
+
+    }
+
     public void onAdd(View view){
         Intent intent = new Intent(this, calorie_tracker_add_list.class);
         startActivity(intent);
     }
 
     public void onRemove(View view){
-
+      Intent intent = new Intent(this, calorie_tracker_remove_List.class);
+      startActivity(intent);
     }
 }

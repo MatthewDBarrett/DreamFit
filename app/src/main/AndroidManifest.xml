@@ -41,6 +41,9 @@
             android:parentActivityName=".calorie_tracker_main_page"
             android:screenOrientation="portrait"/>
         <activity
+            android:name=".calorie_tracker_remove_List"
+            android:parentActivityName=".calorie_tracker_main_page" />
+        <activity
             android:name=".profile_page"
             android:parentActivityName=".MainPage"
             android:screenOrientation="portrait"></activity>
