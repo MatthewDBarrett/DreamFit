@@ -2,7 +2,6 @@ package com.example.ethan.dream_fit;
 
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
-import android.widget.ListView;
 
 public class calorie_tracker_remove_List extends AppCompatActivity {
 
@@ -11,7 +10,7 @@ public class calorie_tracker_remove_List extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_calorie_tracker_remove_list);
 
-        ListView mainListView = (ListView) findViewById(R.id.removeFood);
+        //ListView mainListView = (ListView) findViewById(R.id.removeFood);
         //mainListView
     }
 
