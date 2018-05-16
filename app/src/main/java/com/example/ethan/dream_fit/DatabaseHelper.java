@@ -50,7 +50,7 @@ public class DatabaseHelper extends SQLiteOpenHelper{
 
         //adding values from method paramter to content value
         contentValues.put(COL2, description);
-        contentValues.put(COL3, calorie);
+        contentValues.put(COL3, calorie );
 
         long result = db.insert(TABLE_NAME, null, contentValues);
 
@@ -60,7 +60,20 @@ public class DatabaseHelper extends SQLiteOpenHelper{
             return true ;
     }
 
-     public Cursor getListContents(){
+    public void clearDatabase(){
+        SQLiteDatabase db = this.getWritableDatabase();
+        // this will clear all the rows from the existing table in this database
+
+        String clearDBQuery = "DELETE FROM " + TABLE_NAME ;
+        db.execSQL(clearDBQuery);
+    }
+
+    public void removeItem(String Id){
+        SQLiteDatabase db = this.getWritableDatabase();
+        //return db.delete(TABLE_NAME, "ID = ?", new String[] {Id});
+    }
+
+    public Cursor getListContents(){
         //Uses a (select  Query) i.e select all from table
 
         SQLiteDatabase db = this.getWritableDatabase();
