@@ -16,6 +16,7 @@ import java.util.ArrayList;
 public class calorie_tracker_add_list extends AppCompatActivity {
 
     DatabaseHelper myDB;
+    DatabaseHelper_Main main_DB;
     ArrayList<Item> itemList;
     ListView mainListView;
     Item thisItem;
@@ -28,12 +29,12 @@ public class calorie_tracker_add_list extends AppCompatActivity {
 
         mainListView = (ListView) findViewById(R.id.foodList);
         myDB = new DatabaseHelper(this);
-
+        main_DB = new DatabaseHelper_Main(this);
 
         // add heading to the list view
         layoutinflater = getLayoutInflater();
         ViewGroup header = (ViewGroup)layoutinflater.inflate(R.layout.item_header,mainListView,false);
-        mainListView.addHeaderView(header);
+        mainListView.addHeaderView(header,null,false);
 
         //1. create an array list and
         //2. populate it through database
@@ -68,16 +69,37 @@ public class calorie_tracker_add_list extends AppCompatActivity {
                 mainListView.setAdapter(adapter);
 
 
+
                 //THis is what Carlos suggested
                 mainListView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+
                     @Override
                     public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
+
+
+                        // get the current Index
+                        Item thisItem = itemList.get(i-1);
+
+                        //Note- there is a glitch here, due to the addition of a header in list view
+                        //the count of the list view becomes 'off' by one
+                        //Fix for noe is too get the previous item than that the one is selected
+
+
+                            Toast.makeText(calorie_tracker_add_list.this, "Item, Ready to be tracked!", Toast.LENGTH_LONG).show();
+
+                            String description = thisItem.getDescription();
+                            String calorie = thisItem.getCalorie();
+                            main_DB.addData(description,calorie);
+
+
 
                     }
                 });
             }
         }
     }
+
+
 
     public void onAdd(View view){
         Intent intent = new Intent(this, calorie_tracker_add_item.class);
