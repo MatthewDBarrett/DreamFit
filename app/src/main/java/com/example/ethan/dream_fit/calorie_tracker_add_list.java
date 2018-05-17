@@ -4,7 +4,9 @@ import android.content.Intent;
 import android.database.Cursor;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
+import android.view.LayoutInflater;
 import android.view.View;
+import android.view.ViewGroup;
 import android.widget.AdapterView;
 import android.widget.ListView;
 import android.widget.Toast;
@@ -17,6 +19,7 @@ public class calorie_tracker_add_list extends AppCompatActivity {
     ArrayList<Item> itemList;
     ListView mainListView;
     Item thisItem;
+    LayoutInflater layoutinflater;
 
 
     protected void onCreate(Bundle savedInstanceState) {
@@ -26,6 +29,11 @@ public class calorie_tracker_add_list extends AppCompatActivity {
         mainListView = (ListView) findViewById(R.id.foodList);
         myDB = new DatabaseHelper(this);
 
+
+        // add heading to the list view
+        layoutinflater = getLayoutInflater();
+        ViewGroup header = (ViewGroup)layoutinflater.inflate(R.layout.item_header,mainListView,false);
+        mainListView.addHeaderView(header);
 
         //1. create an array list and
         //2. populate it through database
@@ -55,6 +63,7 @@ public class calorie_tracker_add_list extends AppCompatActivity {
                 itemList.add(thisItem);
 
                 two_Column_ListAdapter adapter = new two_Column_ListAdapter(this,R.layout.adapter_view_layout, itemList);
+
 
                 mainListView.setAdapter(adapter);
 
