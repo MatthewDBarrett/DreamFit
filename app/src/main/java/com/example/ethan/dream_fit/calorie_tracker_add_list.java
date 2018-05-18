@@ -34,6 +34,7 @@ public class calorie_tracker_add_list extends AppCompatActivity {
         // add heading to the list view
         layoutinflater = getLayoutInflater();
         ViewGroup header = (ViewGroup)layoutinflater.inflate(R.layout.item_header,mainListView,false);
+        // ListView disable clicks on header view
         mainListView.addHeaderView(header,null,false);
 
         //1. create an array list and

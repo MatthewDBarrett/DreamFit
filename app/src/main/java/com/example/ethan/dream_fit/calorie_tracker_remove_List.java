@@ -35,7 +35,8 @@ public class calorie_tracker_remove_List extends AppCompatActivity {
         // add heading to the list view
         layoutinflater = getLayoutInflater();
         ViewGroup header = (ViewGroup)layoutinflater.inflate(R.layout.item_header,mainListView,false);
-        mainListView.addHeaderView(header);
+        // ListView disable clicks on header view
+        mainListView.addHeaderView(header,null,false);
 
         //1. create an array list and
         //2. populate it through database
@@ -72,8 +73,22 @@ public class calorie_tracker_remove_List extends AppCompatActivity {
 
                 //THis is what Carlos suggested
                 mainListView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+
                     @Override
                     public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
+
+                        // get the current Index
+                        Item thisItem = itemList.get(i-1);
+
+                        //Note- there is a glitch here, due to the addition of a header in list view
+                        //the count of the list view becomes 'off' by one
+                        //Fix for noe is too get the previous item than that the one is selected
+
+
+                        Toast.makeText(calorie_tracker_remove_List.this, "Item, removed dogged!", Toast.LENGTH_LONG).show();
+
+                        String description = thisItem.getDescription();
+                        String calorie = thisItem.getCalorie();
 
                     }
                 });
