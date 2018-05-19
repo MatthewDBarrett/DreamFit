@@ -114,12 +114,16 @@ public class calorie_tracker_main_page extends AppCompatActivity {
                         //the count of the list view becomes 'off' by one
                         //Fix for noe is too get the previous item than that the one is selected
 
+                         if(stepInt <= limitAmnt){
 
-                        Toast.makeText(calorie_tracker_main_page.this, " all calories, Tracked!", Toast.LENGTH_SHORT).show();
+                             Toast.makeText(calorie_tracker_main_page.this, " all calories, Tracked!", Toast.LENGTH_SHORT).show();
 
-                         int calorie = Integer.parseInt((thisItem.getCalorie()).toString());
-                         stepInt += calorie;
-                         changeProgress(stepInt,limitAmnt);
+                             int calorie = Integer.parseInt((thisItem.getCalorie()).toString());
+                             stepInt += calorie;
+                             changeProgress(stepInt,limitAmnt);
+                         }else
+                             Toast.makeText(calorie_tracker_main_page.this, " dogged", Toast.LENGTH_SHORT).show();
+
 
                     }
                 });
