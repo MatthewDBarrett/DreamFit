@@ -33,7 +33,7 @@
         android:onClick="openBMICalculator"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.963"
+        app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toEndOf="@+id/stepCounter"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.532"
@@ -79,9 +79,10 @@
         android:text="@string/settings"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.727"
+        app:layout_constraintHorizontal_bias="0.775"
         app:layout_constraintStart_toEndOf="@+id/calorieCounter"
-        app:layout_constraintTop_toBottomOf="@+id/bmiCalculator" />
+        app:layout_constraintTop_toBottomOf="@+id/bmiCalculator"
+        app:layout_constraintVertical_bias="0.491" />
 
 
 </android.support.constraint.ConstraintLayout>

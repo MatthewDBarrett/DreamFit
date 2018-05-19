@@ -14,6 +14,7 @@ import android.widget.AdapterView;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ListView;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.budiyev.android.circularprogressbar.CircularProgressBar;
@@ -30,6 +31,8 @@ public class calorie_tracker_main_page extends AppCompatActivity {
     ListView mainListView;
     Item thisItem;
     LayoutInflater layoutinflater;
+    TextView calorieLimit;
+    TextView calorieAmnt;
 
     //for circular progress bar
     private int limitAmnt = 1000;
@@ -49,7 +52,10 @@ public class calorie_tracker_main_page extends AppCompatActivity {
         //Initializing the 'limit' and progress of the circular bar
         CircularProgressBar progressBar = findViewById(R.id.progress_bar);
         progressBar.setProgress((float)(stepInt/limitAmnt));
-
+        calorieLimit = findViewById(R.id.calorieLimit);
+        calorieAmnt = findViewById(R.id.calorieAmount);
+        calorieLimit.setText(Integer.toString(limitAmnt));
+        calorieAmnt.setText(Integer.toString(stepInt));
         //------------------------------------------OnLimit Handler-----------------------------------------------------------------
 
         //initialise the prompts.
@@ -121,6 +127,7 @@ public class calorie_tracker_main_page extends AppCompatActivity {
                              int calorie = Integer.parseInt((thisItem.getCalorie()).toString());
                              stepInt += calorie;
                              changeProgress(stepInt,limitAmnt);
+                             calorieAmnt.setText(Integer.toString(stepInt));
                          }else
                              Toast.makeText(calorie_tracker_main_page.this, " dogged", Toast.LENGTH_SHORT).show();
 
@@ -179,6 +186,7 @@ public class calorie_tracker_main_page extends AppCompatActivity {
                                 // edit text
                                 limitAmnt = Integer.parseInt(userInput.getText().toString());
                                 changeProgress(stepInt, limitAmnt);
+                                calorieLimit.setText(Integer.toString(limitAmnt));
                             }
                         })
                 .setNegativeButton("Cancel",
