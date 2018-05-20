@@ -1,5 +1,6 @@
 package com.example.ethan.dream_fit;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
@@ -68,7 +69,7 @@ public class calorie_tracker_add_item extends AppCompatActivity {
         } else {
             Toast.makeText(calorie_tracker_add_item.this, "Oops, u dogged wrong info", Toast.LENGTH_LONG).show();
         }
-
+//Intent intent  = new Intent(calorie, calorie_tra)
     }
 }
 

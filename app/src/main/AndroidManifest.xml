@@ -54,6 +54,9 @@
             android:screenOrientation="portrait">
         </activity>
         <activity
+            android:name=".water_intake"
+            android:parentActivityName=".MainPage"></activity>
+        <activity
             android:name=".settings_page"
             android:parentActivityName=".MainPage"
             android:screenOrientation="portrait"/>
