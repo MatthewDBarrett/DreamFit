@@ -7,85 +7,102 @@
     tools:context=".MainPage">
 
     <ImageButton
-        android:id="@+id/stepCounter"
-        android:layout_width="128dp"
-        android:layout_height="102dp"
-        android:layout_marginStart="57dp"
-        android:layout_marginTop="41dp"
-        android:background="@color/colorPrimary"
-        android:contentDescription="@string/step_counter"
-        android:cropToPadding="false"
-        android:onClick="openStepCounter"
-        app:layout_constraintBottom_toTopOf="@+id/calorieCounter"
-        app:layout_constraintEnd_toStartOf="@+id/bmiCalculator"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/profilePic"
-        app:srcCompat="@mipmap/step_counter" />
-
-    <ImageButton
-        android:id="@+id/bmiCalculator"
-        android:layout_width="128dp"
-        android:layout_height="102dp"
-        android:layout_marginEnd="100dp"
-        android:layout_marginTop="42dp"
-        android:background="@color/calorie_counter_background"
-        android:contentDescription="@string/BMI_calculator"
-        android:onClick="openBMICalculator"
-        app:layout_constraintBottom_toTopOf="@+id/settingsButton"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="1.0"
-        app:layout_constraintStart_toEndOf="@+id/stepCounter"
-        app:layout_constraintTop_toBottomOf="@+id/profilePic"
-        app:srcCompat="@mipmap/bmi_calculator" />
-
-    <ImageButton
         android:id="@+id/profilePic"
         android:layout_width="200dp"
         android:layout_height="200dp"
-        android:layout_marginEnd="118dp"
-        android:layout_marginStart="93dp"
-        android:layout_marginTop="40dp"
+        android:layout_marginEnd="32dp"
+        android:layout_marginStart="32dp"
+        android:layout_marginTop="16dp"
         android:background="@color/bmi_calculator_background"
         android:onClick="openProfilePage"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.497"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="@mipmap/default_profile_foreground" />
+        app:srcCompat="@mipmap/default_profile_foreground"
+        android:scaleType="fitXY"/>
 
-    <ImageButton
-        android:id="@+id/calorieCounter"
-        android:layout_width="128dp"
-        android:layout_height="102dp"
-        android:layout_marginBottom="118dp"
-        android:layout_marginStart="42dp"
-
-        android:background="@color/calorie_counter_background"
-        android:onClick="openCalorieTracker"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.063"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/stepCounter"
-        app:srcCompat="@mipmap/calorie_counter" />
-
-    <ImageButton
-        android:id="@+id/settingsButton"
-        android:layout_width="128dp"
-        android:layout_height="102dp"
-        android:layout_marginBottom="118dp"
-        android:layout_marginEnd="100dp"
-        android:background="@drawable/cog"
-        android:onClick="openSettings"
-        android:text="@string/settings"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent" />
-
-    <android.support.constraint.Guideline
-        android:id="@+id/guideline6"
+    <LinearLayout
+        android:id="@+id/linearLayout"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginEnd="32dp"
+        android:layout_marginStart="32dp"
+        android:layout_marginTop="32dp"
         android:orientation="horizontal"
-        app:layout_constraintGuide_begin="20dp" />
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/profilePic">
+
+        <ImageButton
+            android:id="@+id/bmiCalculator"
+            style="@android:style/Widget.Holo.ImageButton"
+            android:layout_width="150dp"
+            android:layout_height="150dp"
+            android:background="@color/calorie_counter_background"
+            android:contentDescription="@string/BMI_calculator"
+            android:onClick="openBMICalculator"
+            android:scaleType="fitXY"
+            app:srcCompat="@mipmap/bmi_calculator"
+            tools:layout_editor_absoluteX="250dp"
+            tools:layout_editor_absoluteY="265dp" />
+
+        <ImageButton
+            android:id="@+id/stepCounter"
+            style="@android:style/Widget.Holo.ImageButton"
+            android:layout_width="150dp"
+            android:layout_height="150dp"
+            android:layout_marginStart="32dp"
+            android:background="@color/colorPrimary"
+            android:contentDescription="@string/step_counter"
+            android:cropToPadding="false"
+            android:onClick="openStepCounter"
+            android:scaleType="fitXY"
+            app:layout_constraintStart_toStartOf="parent"
+            app:srcCompat="@mipmap/step_counter"
+            tools:layout_editor_absoluteY="265dp" />
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="32dp"
+        android:layout_marginStart="32dp"
+        android:layout_marginTop="32dp"
+        android:orientation="horizontal"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.494"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/linearLayout">
+
+        <ImageButton
+            android:id="@+id/calorieCounter"
+            style="@android:style/Widget.Holo.ImageButton"
+            android:layout_width="150dp"
+            android:layout_height="150dp"
+            android:background="@color/calorie_counter_background"
+            android:onClick="openCalorieTracker"
+            android:scaleType="fitXY"
+            app:layout_constraintStart_toStartOf="parent"
+            app:srcCompat="@mipmap/calorie_counter"
+            tools:layout_editor_absoluteY="457dp" />
+
+        <ImageButton
+            android:id="@+id/settingsButton"
+            style="@android:style/Widget.Holo.ImageButton"
+            android:layout_width="150dp"
+            android:layout_height="150dp"
+            android:layout_marginStart="32dp"
+            android:background="@color/colorPrimary"
+            android:onClick="openSettings"
+            android:scaleType="fitXY"
+            android:src="@drawable/cog"
+            android:text="@string/settings"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent" />
+
+    </LinearLayout>
 
 
 </android.support.constraint.ConstraintLayout>
