@@ -30,6 +30,7 @@ public class bmi_calculator extends AppCompatActivity {
                 centimeter = Double.parseDouble(centimeterText.getText().toString());
                 bmiResult = (int) ((kilogram/(centimeter/100))/(centimeter/100));
                 resultText.setText(String.valueOf(bmiResult));
+
         }catch(NumberFormatException thisException){
             if((kilogramText.getText().toString()).matches("") && (centimeterText.getText().toString()).matches(""))
                 Toast.makeText(bmi_calculator.this,"Please Enter your weight and height",Toast.LENGTH_SHORT).show();
