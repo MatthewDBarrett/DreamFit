@@ -21,14 +21,14 @@ public class bmi_calculator extends AppCompatActivity {
         TextView resultText = (TextView) findViewById(R.id.resultText);
 
         double kilogram, centimeter;
-        double bmiResult;
+        int bmiResult;
 
         //(kilogramText.getText().equals(0) && centimeterText.getText().equals(0)){
 
         try{
                 kilogram = Double.parseDouble(kilogramText.getText().toString());
                 centimeter = Double.parseDouble(centimeterText.getText().toString());
-                bmiResult = (kilogram/(centimeter/100))/(centimeter/100);
+                bmiResult = (int) ((kilogram/(centimeter/100))/(centimeter/100));
                 resultText.setText(String.valueOf(bmiResult));
         }catch(NumberFormatException thisException){
             if((kilogramText.getText().toString()).matches("") && (centimeterText.getText().toString()).matches(""))
