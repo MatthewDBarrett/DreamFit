@@ -133,10 +133,10 @@
         android:layout_marginTop="4dp"
         app:layout_constraintBottom_toTopOf="@+id/imageView2"
         app:layout_constraintEnd_toStartOf="@+id/imageView2"
-        app:layout_constraintHorizontal_bias="0.47"
+        app:layout_constraintHorizontal_bias="0.482"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/result"
-        app:layout_constraintVertical_bias="0.0"
+        app:layout_constraintVertical_bias="0.33"
         app:srcCompat="@drawable/profile" />
 
 </android.support.constraint.ConstraintLayout>
