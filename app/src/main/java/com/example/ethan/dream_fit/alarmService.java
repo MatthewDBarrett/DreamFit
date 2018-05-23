@@ -18,7 +18,7 @@ public class alarmService extends Service
     {
         Context context = getApplicationContext();
         alarm.SetAlarm(context);
-        return Service.START_NOT_STICKY;
+        return Service.START_STICKY;
     }
 
     @Override

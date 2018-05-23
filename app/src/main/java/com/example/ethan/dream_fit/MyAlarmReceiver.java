@@ -20,7 +20,6 @@ public class MyAlarmReceiver extends BroadcastReceiver {
         prefs = context.getSharedPreferences(
                 "com.example.ethan.dream_fit", Context.MODE_PRIVATE);
         prefs.edit().putInt("stepAmnt", 0).apply();
-        Toast.makeText(context, "What the heck", Toast.LENGTH_SHORT).show();
         Log.w("com.example.ethan.dream_fit", "NANI");
     }
 
@@ -28,8 +27,8 @@ public class MyAlarmReceiver extends BroadcastReceiver {
     {
         Calendar calendar = Calendar.getInstance();
         //set the time to 6AM
-        calendar.set(Calendar.HOUR_OF_DAY, 0);
-        calendar.set(Calendar.MINUTE, 0);
+        calendar.set(Calendar.HOUR_OF_DAY, 23);
+        calendar.set(Calendar.MINUTE, 59);
         calendar.set(Calendar.SECOND, 0);
 
         AlarmManager am = (AlarmManager)context.getSystemService(Context.ALARM_SERVICE);
