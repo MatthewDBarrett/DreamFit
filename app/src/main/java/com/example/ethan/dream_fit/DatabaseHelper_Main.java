@@ -68,9 +68,10 @@ public class DatabaseHelper_Main extends SQLiteOpenHelper{
         db.execSQL(clearDBQuery);
     }
 
-    public void removeItem(String Id){
+    public void removeItem(String description){
         SQLiteDatabase db = this.getWritableDatabase();
-        //return db.delete(TABLE_NAME, "ID = ?", new String[] {Id});
+        db.execSQL("DELETE FROM " + TABLE_NAME + " WHERE " + COL2+ "= '" + description+ "'");
+        db.close();
     }
 
     public Cursor getListContents(){
@@ -80,4 +81,6 @@ public class DatabaseHelper_Main extends SQLiteOpenHelper{
         Cursor data = db.rawQuery("SELECT * FROM " + TABLE_NAME, null);
         return data;
     }
+
+
 }

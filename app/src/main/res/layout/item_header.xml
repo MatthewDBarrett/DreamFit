@@ -12,7 +12,7 @@
         >
 
         <TextView
-            android:layout_width="256dp"
+            android:layout_width="275dp"
             android:layout_column="0"
             android:layout_span="4"
             android:background="#c0c0c0"
