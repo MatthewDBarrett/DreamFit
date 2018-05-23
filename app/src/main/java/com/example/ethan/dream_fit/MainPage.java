@@ -13,10 +13,8 @@ import android.widget.ImageView;
 import java.util.Calendar;
 
 public class MainPage extends AppCompatActivity {
-
-    private AlarmManager alarmMgr;
-    private PendingIntent alarmIntent;
     private Context context = this;
+    Intent alarmService;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -26,18 +24,8 @@ public class MainPage extends AppCompatActivity {
         profilePicture.setScaleType(ImageView.ScaleType.FIT_XY);
         profilePicture.setAdjustViewBounds(true);
 
-        // Set the alarm to start at approximately 12:00 AM.
-            alarmMgr = (AlarmManager)context.getSystemService(Context.ALARM_SERVICE);
-            Intent intent = new Intent(context, MyAlarmReceiver.class);
-            alarmIntent = PendingIntent.getBroadcast(context, 0, intent, 0);
-
-            Calendar calendar = Calendar.getInstance();
-            calendar.setTimeInMillis(System.currentTimeMillis());
-            calendar.set(Calendar.HOUR_OF_DAY, 0);
-            calendar.set(Calendar.MINUTE, 1);
-
-            alarmMgr.setRepeating(AlarmManager.RTC_WAKEUP, calendar.getTimeInMillis(),
-                    AlarmManager.INTERVAL_DAY, alarmIntent);
+        alarmService = new Intent(context, alarmService.class);
+        context.startService(alarmService);
     }
 
     public void openStepCounter(View view){
