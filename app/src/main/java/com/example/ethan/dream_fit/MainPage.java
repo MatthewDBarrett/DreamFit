@@ -42,4 +42,14 @@ public class MainPage extends AppCompatActivity {
         Intent intent = new Intent(this, settings_page.class);
         startActivity(intent);
     }
+
+    public void openStats(View view){
+        Intent intent = new Intent(this, stats.class);
+        startActivity(intent);
+    }
+
+    public void openHeartRate(View view){
+        Intent intent = new Intent(this, heart_rate.class);
+        startActivity(intent);
+    }
 }

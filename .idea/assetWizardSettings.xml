@@ -18,7 +18,29 @@
                                 <PersistentState>
                                   <option name="children">
                                     <map>
+                                      <entry key="clipArt">
+                                        <value>
+                                          <PersistentState>
+                                            <option name="values">
+                                              <map>
+                                                <entry key="trimmed" value="true" />
+                                              </map>
+                                            </option>
+                                          </PersistentState>
+                                        </value>
+                                      </entry>
                                       <entry key="image">
+                                        <value>
+                                          <PersistentState>
+                                            <option name="values">
+                                              <map>
+                                                <entry key="trimmed" value="true" />
+                                              </map>
+                                            </option>
+                                          </PersistentState>
+                                        </value>
+                                      </entry>
+                                      <entry key="text">
                                         <value>
                                           <PersistentState>
                                             <option name="values">
@@ -34,8 +56,8 @@
                                   <option name="values">
                                     <map>
                                       <entry key="assetType" value="IMAGE" />
-                                      <entry key="imageAsset" value="C:\Users\ethan\DreamFit\app\src\main\black step.png" />
-                                      <entry key="outputName" value="black_step" />
+                                      <entry key="imageAsset" value="D:\Google Drive\Uni\S1-2018\Software Engineering Studio 1A\Graphics\heartRate.png" />
+                                      <entry key="outputName" value="heart_rate" />
                                     </map>
                                   </option>
                                 </PersistentState>
