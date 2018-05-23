@@ -70,7 +70,7 @@ public class profile_page extends AppCompatActivity {
 
         ListView resultsListView = (ListView) findViewById(R.id.results_listview);
         //Shared Preference Initialisation
-        name = prefs.getString("name", "<nonamespecified>"); ;
+        name = prefs.getString("name", "<nonamespecified>");
         height = prefs.getFloat("height", 0);
         weight = prefs.getFloat("weight", 0);
         gender = prefs.getBoolean("gender", true);//Let Male be True, Female be False.

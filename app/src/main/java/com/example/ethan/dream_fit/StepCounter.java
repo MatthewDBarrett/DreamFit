@@ -3,6 +3,7 @@ package com.example.ethan.dream_fit;
 import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.hardware.Sensor;
 import android.hardware.SensorEvent;
 import android.hardware.SensorEventListener;
@@ -23,10 +24,14 @@ import com.budiyev.android.circularprogressbar.CircularProgressBar;
 import static android.view.View.INVISIBLE;
 
 public class StepCounter extends AppCompatActivity implements SensorEventListener {
-
-    private int stepInt = 0;
-    private int limitAmnt = 1000;
+    /*
+    * 3) set an alarm/reciever to set the stepInt to 0 at 12AM of the next day
+    * 4) notify the user that the counter only works when the app is open on the stepcounter page.
+    * */
+    private int stepInt;
+    private int limitAmnt;
     final Context context = this;
+    SharedPreferences prefs;
 
     //TextView tv_step;                   //STEP COUNTER
 
@@ -58,8 +63,8 @@ public class StepCounter extends AppCompatActivity implements SensorEventListene
     @Override
     public void onSensorChanged(SensorEvent sensorEvent) {
         if(running){
-
-            stepInt += 1;
+            stepInt++;
+            prefs.edit().putInt("stepAmnt", stepInt).apply();
             TextView textElement = (TextView) findViewById(R.id.sampleText3);
             textElement.setText(String.valueOf(stepInt));
             //motivationDecision();
@@ -78,6 +83,11 @@ public class StepCounter extends AppCompatActivity implements SensorEventListene
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_step_counter);
+        prefs = this.getSharedPreferences(
+                "com.example.ethan.dream_fit", Context.MODE_PRIVATE);
+
+        stepInt = prefs.getInt("stepAmnt", 0);
+        limitAmnt = prefs.getInt("stepLimit", 10000);
 
         //tv_step = (TextView) findViewById(R.id.tv_step);                                 //STEP COUNTER
         sensorManager = (SensorManager) getSystemService(Context.SENSOR_SERVICE);        //STEP COUNTER
@@ -124,7 +134,8 @@ public class StepCounter extends AppCompatActivity implements SensorEventListene
                                     public void onClick(DialogInterface dialog,int id) {
                                         // get user input and set it to result
                                         // edit text
-                                        limitAmnt = Integer.parseInt(userInput.getText().toString());
+                                        prefs.edit().putInt("stepLimit",Integer.parseInt(userInput.getText().toString())).apply();
+                                        limitAmnt = prefs.getInt("stepLimit", 10000);
                                         changeProgress(stepInt, limitAmnt);
                                         textElement2.setText(String.valueOf(limitAmnt));
                                     }
@@ -145,14 +156,10 @@ public class StepCounter extends AppCompatActivity implements SensorEventListene
             }
         });
 
-    }
-
-    public void onReset(View view){
-
-        Button changeButton = (Button) findViewById(R.id.reset);
+        Button resetButton = (Button) findViewById(R.id.reset);
 
         //prompts class
-        changeButton.setOnClickListener(new View.OnClickListener() {
+        resetButton.setOnClickListener(new View.OnClickListener() {
 
             @Override
             public void onClick(View arg0) {
@@ -178,7 +185,8 @@ public class StepCounter extends AppCompatActivity implements SensorEventListene
                                     public void onClick(DialogInterface dialog,int id) {
                                         // get user input and set it to result
                                         // edit text
-                                        stepInt = 0;
+                                        prefs.edit().putInt("stepAmnt", 0);
+                                        stepInt = prefs.getInt("stepAmnt", 0);
                                         TextView textElement = (TextView) findViewById(R.id.sampleText3);
                                         textElement.setText(String.valueOf(stepInt));
                                         CircularProgressBar progressBar = findViewById(R.id.progress_bar);
@@ -201,6 +209,9 @@ public class StepCounter extends AppCompatActivity implements SensorEventListene
             }
         });
 
+    }
+
+    public void onReset(View view){
         //motivationDecision();
     }
 
