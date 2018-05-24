@@ -8,6 +8,7 @@ import android.hardware.SensorEvent;
 import android.hardware.SensorEventListener;
 import android.hardware.SensorManager;
 import android.os.Bundle;
+import android.preference.PreferenceManager;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.view.LayoutInflater;
@@ -26,10 +27,24 @@ public class StepCounter extends AppCompatActivity implements SensorEventListene
     * 3) set an alarm/reciever to set the stepInt to 0 at 12AM of the next day
     * 4) notify the user that the counter only works when the app is open on the stepcounter page.
     * */
+
+    /*
+    *  You’ll burn one calorie for every 20 steps you burn, indicates the website of Shape Up America!,
+    *  Website - https://www.livestrong.com/article/320124-how-many-calories-does-the-average-person-use-per-step/
+    * */
+
     private int stepInt;
     private int limitAmnt;
+    private int burntCal = 0;
+    private int calLimitToBurn;
+    TextView calorieBurntTextView ;
+    TextView calorieLimitTextView ;
     final Context context = this;
     SharedPreferences prefs;
+
+    SharedPreferences sharedPrefObj;               //CalorieBurnt
+    private SharedPreferences.Editor mEditor;      //CaloriesBurnt
+
 
     //TextView tv_step;                   //STEP COUNTER
 
@@ -47,6 +62,15 @@ public class StepCounter extends AppCompatActivity implements SensorEventListene
         } else {
             Toast.makeText(this, "Sensor not found", Toast.LENGTH_SHORT).show();
         }
+
+        //calorieBurntTextView.setText(String.valueOf(burntCal));
+        /*
+        calorieLimitTextView.setText(String.valueOf(calLimitToBurn));
+        CircularProgressBar caloriesProgress = findViewById(R.id.calorieBurnt_Bar);
+        if(burntCal!=0)
+        caloriesProgress.setProgress((float)(burntCal/calLimitToBurn));
+         */
+
 
     }
 
@@ -69,6 +93,23 @@ public class StepCounter extends AppCompatActivity implements SensorEventListene
             changeProgress(stepInt, limitAmnt);
 
             //tv_step.setText(String.valueOf(sensorEvent.values[0]));
+
+            /*
+            * FOR CALORIES BURNT
+            * 1. n % x == 0
+            * 2. Means that n can be divided by x. So... for instance, in your case:
+            * 3. stepInt can be divided by 20 i.e ) One calorie burnt
+            **/
+
+            if(stepInt == 20){
+                ++burntCal;
+                calorieBurntTextView.setText(String.valueOf(burntCal));
+                changeBurntCalProg(burntCal, calLimitToBurn);
+            }else if (stepInt % 20 == 0){
+                ++burntCal;
+                calorieBurntTextView.setText(String.valueOf(burntCal));
+                changeBurntCalProg(burntCal, calLimitToBurn);
+            }
         }
     }
 
@@ -84,8 +125,17 @@ public class StepCounter extends AppCompatActivity implements SensorEventListene
         prefs = this.getSharedPreferences(
                 "com.example.ethan.dream_fit", Context.MODE_PRIVATE);
 
+        sharedPrefObj = PreferenceManager.getDefaultSharedPreferences(this);                      //BURNT CALORIES
+        mEditor = sharedPrefObj.edit();                                                                  //BURNT CALORIES
+
+
         stepInt = prefs.getInt("stepAmnt", 0);
         limitAmnt = prefs.getInt("stepLimit", 10000);
+
+        mEditor.putInt(getString(R.string.calorieToBurnKey),burntCal);                                      //BURNT CALORIES
+        mEditor.commit();                                                                                   //BURNT CALORIES
+
+        calLimitToBurn = sharedPrefObj.getInt(getString(R.string.calorieKey),0);                     //BURNT CALORIES
 
         //tv_step = (TextView) findViewById(R.id.tv_step);                                 //STEP COUNTER
         sensorManager = (SensorManager) getSystemService(Context.SENSOR_SERVICE);        //STEP COUNTER
@@ -95,12 +145,25 @@ public class StepCounter extends AppCompatActivity implements SensorEventListene
         final TextView textElement2 = (TextView) findViewById(R.id.sampleText2);
         TextView motivation = (TextView) findViewById(R.id.motivationText);
 
+        //TextView for Calories Burnt
+         calorieBurntTextView = (TextView) findViewById(R.id.calBurn1);
+         calorieLimitTextView = (TextView) findViewById(R.id.calLim);
+
         //set the text to the default values, initialise the progress bar.
         textElement.setText(String.valueOf(stepInt));
         textElement2.setText(String.valueOf(limitAmnt));
         CircularProgressBar progressBar = findViewById(R.id.progress_bar);
         progressBar.setProgress((float)(stepInt/limitAmnt));
         motivation.setVisibility(INVISIBLE);
+
+        /*
+        * set the text to the default values and Intialize the progress bar for calories burnt
+        * */
+
+        calorieBurntTextView.setText(String.valueOf(burntCal));
+        calorieLimitTextView.setText(String.valueOf(calLimitToBurn));
+        CircularProgressBar caloriesProgress = findViewById(R.id.calorieBurnt_Bar);
+        caloriesProgress.setProgress(burntCal);
 
         //initialise the prompts.
         Button changeButton = (Button) findViewById(R.id.changeLim);
@@ -215,6 +278,11 @@ public class StepCounter extends AppCompatActivity implements SensorEventListene
 
     private void changeProgress(int step, int limit){
         CircularProgressBar progressBar = findViewById(R.id.progress_bar);
+        progressBar.setProgress((float)(100 * step/ limit));
+    }
+
+    private void changeBurntCalProg(int step, int limit){
+        CircularProgressBar progressBar = findViewById(R.id.calorieBurnt_Bar);
         progressBar.setProgress((float)(100 * step/ limit));
     }
 

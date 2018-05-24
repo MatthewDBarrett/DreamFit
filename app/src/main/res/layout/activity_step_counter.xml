@@ -7,9 +7,9 @@
     tools:context=".StepCounter">
 
     <com.budiyev.android.circularprogressbar.CircularProgressBar
-        android:id="@+id/calorieBurnt"
-        android:layout_width="177dp"
-        android:layout_height="135dp"
+        android:id="@+id/calorieBurnt_Bar"
+        android:layout_width="202dp"
+        android:layout_height="196dp"
         android:layout_marginBottom="16dp"
         android:layout_marginEnd="86dp"
         android:layout_marginStart="85dp"
@@ -27,10 +27,10 @@
         app:indeterminateSweepAnimationDuration="600"
         app:layout_constraintBottom_toTopOf="@+id/reset"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.507"
+        app:layout_constraintHorizontal_bias="0.518"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/motivationText"
-        app:layout_constraintVertical_bias="1.0"
+        app:layout_constraintVertical_bias="0.526"
         app:maximum="100"
         app:progress="50"
         app:progressAnimationDuration="1000"
@@ -129,7 +129,7 @@
         android:id="@+id/motivationText"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="28dp"
+        android:layout_marginTop="4dp"
         android:text="TextView"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -137,41 +137,61 @@
 
     <TextView
         android:id="@+id/calBurn1"
-        android:layout_width="66dp"
-        android:layout_height="21dp"
-        android:layout_marginEnd="8dp"
-        android:layout_marginStart="8dp"
-        android:layout_marginTop="36dp"
-        android:text="TextView"
+        android:layout_width="46dp"
+        android:layout_height="34dp"
+        android:layout_marginEnd="148dp"
+        android:layout_marginStart="2dp"
+        android:layout_marginTop="64dp"
+        android:text="0"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.498"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="@+id/calorieBurnt" />
-
-    <TextView
-        android:id="@+id/textView5"
-        android:layout_width="18dp"
-        android:layout_height="19dp"
-        android:layout_marginEnd="8dp"
-        android:layout_marginStart="8dp"
-        android:layout_marginTop="56dp"
-        android:text="/"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.498"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="@+id/calorieBurnt" />
+        app:layout_constraintHorizontal_bias="0.25"
+        app:layout_constraintStart_toEndOf="@+id/editText4"
+        app:layout_constraintTop_toTopOf="@+id/calorieBurnt_Bar" />
 
     <TextView
         android:id="@+id/calLim"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginBottom="36dp"
-        android:layout_marginEnd="8dp"
-        android:layout_marginStart="8dp"
-        android:text="TextView"
-        app:layout_constraintBottom_toBottomOf="@+id/calorieBurnt"
-        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_width="45dp"
+        android:layout_height="36dp"
+        android:layout_marginBottom="44dp"
+        android:layout_marginEnd="140dp"
+        android:text="0"
+        app:layout_constraintBottom_toBottomOf="@+id/calorieBurnt_Bar"
+        app:layout_constraintEnd_toEndOf="parent" />
+
+    <EditText
+        android:id="@+id/editText3"
+        android:layout_width="69dp"
+        android:layout_height="38dp"
+        android:layout_marginBottom="52dp"
+        android:layout_marginEnd="1dp"
+        android:layout_marginStart="140dp"
+        android:background="@null"
+        android:clickable="false"
+        android:ems="10"
+        android:focusable="false"
+        android:inputType="none"
+        android:text="Target :"
+        app:layout_constraintBottom_toBottomOf="@+id/calorieBurnt_Bar"
+        app:layout_constraintEnd_toStartOf="@+id/calLim"
+        app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toStartOf="parent" />
+
+    <EditText
+        android:id="@+id/editText4"
+        android:layout_width="79dp"
+        android:layout_height="48dp"
+        android:layout_marginBottom="8dp"
+        android:layout_marginStart="148dp"
+        android:layout_marginTop="40dp"
+        android:background="@null"
+        android:clickable="false"
+        android:ems="10"
+        android:focusable="false"
+        android:text="Current :"
+        app:layout_constraintBottom_toTopOf="@+id/editText3"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/motivationText"
+        app:layout_constraintVertical_bias="1.0" />
 
     <!--<TextView
         android:id="@+id/tv_info"

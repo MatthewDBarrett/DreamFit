@@ -50,6 +50,7 @@ public class calorie_tracker_main_page extends AppCompatActivity {
 
         mainListView = (ListView) findViewById(R.id.foodList);
         main_DB = new DatabaseHelper_Main(context);
+        historyDB= new DatabaseHelper(context);
 
 
         //------------------------Shared Preferences-----------------------------------------
@@ -189,6 +190,13 @@ public class calorie_tracker_main_page extends AppCompatActivity {
         // set prompts.xml to alertdialog builder
         alertDialogBuilder.setView(promptsView);
 
+
+        // create alert dialog
+        AlertDialog alertDialog = alertDialogBuilder.create();
+
+        // show it
+        alertDialog.show();
+
         //Create and Intialize edit text
         final EditText description = (EditText) promptsView.findViewById(R.id.description_d);
         final EditText calorie = (EditText) promptsView.findViewById(R.id.calorie_d);
@@ -237,11 +245,6 @@ public class calorie_tracker_main_page extends AppCompatActivity {
 
         });
 
-        // create alert dialog
-        AlertDialog alertDialog = alertDialogBuilder.create();
-
-        // show it
-        alertDialog.show();
 
     }
 
