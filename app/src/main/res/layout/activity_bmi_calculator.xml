@@ -61,7 +61,7 @@
 
     <ImageView
         android:id="@+id/imageView2"
-        android:layout_width="395dp"
+        android:layout_width="379dp"
         android:layout_height="174dp"
         android:layout_marginBottom="100dp"
         android:layout_marginEnd="16dp"
@@ -126,17 +126,20 @@
     <SeekBar
         android:id="@+id/seekBarBMI"
         style="@style/Widget.AppCompat.SeekBar.Discrete"
-        android:layout_width="405dp"
+        android:layout_width="411dp"
         android:layout_height="44dp"
-        android:layout_marginBottom="72dp"
+        android:layout_marginBottom="67dp"
         android:layout_marginEnd="6dp"
+        android:layout_marginStart="5dp"
         android:max="4"
         android:maxHeight="70dp"
         android:minHeight="40dp"
         android:progress="3"
+        android:scaleX="1"
+        android:scaleY="2"
         android:thickness="90dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="@+id/imageView2" />
+        app:layout_constraintStart_toStartOf="parent" />
 
 </android.support.constraint.ConstraintLayout>
