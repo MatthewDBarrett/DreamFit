@@ -9,9 +9,8 @@
     <TextView
         android:id="@+id/textView3"
         android:layout_width="wrap_content"
-        android:layout_height="15dp"
+        android:layout_height="wrap_content"
         android:text="Heart Rate"
-        tools:layout_editor_absoluteX="176dp"
-        tools:layout_editor_absoluteY="241dp" />
-
+        tools:layout_editor_absoluteX="163dp"
+        tools:layout_editor_absoluteY="201dp" />
 </android.support.constraint.ConstraintLayout>
