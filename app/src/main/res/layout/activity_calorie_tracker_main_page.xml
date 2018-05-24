@@ -142,5 +142,20 @@
 
     </LinearLayout>
 
+    <Button
+        android:id="@+id/button"
+        android:layout_width="104dp"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="49dp"
+        android:layout_marginEnd="10dp"
+        android:layout_marginStart="9dp"
+        android:layout_marginTop="37dp"
+        android:onClick="onHistory"
+        android:text="Consumption History"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/Remove"
+        app:layout_constraintStart_toEndOf="@+id/limitBtn"
+        app:layout_constraintTop_toBottomOf="@+id/linearLayout2" />
+
 
 </android.support.constraint.ConstraintLayout>
