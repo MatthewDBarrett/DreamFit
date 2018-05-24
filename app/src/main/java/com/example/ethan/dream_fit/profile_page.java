@@ -2,7 +2,12 @@ package com.example.ethan.dream_fit;
 
 import android.content.Context;
 import android.content.DialogInterface;
+import android.content.Intent;
 import android.content.SharedPreferences;
+import android.database.Cursor;
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
+import android.net.Uri;
 import android.provider.MediaStore;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
@@ -12,6 +17,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.EditText;
+import android.widget.ImageView;
 import android.widget.ListView;
 import android.widget.RadioButton;
 import android.widget.RadioGroup;
@@ -58,10 +64,14 @@ public class profile_page extends AppCompatActivity {
 
     //Contexts
     Context context;
+    private static final int SELECT_PICTURE = 0;
+    private ImageView imageView;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_profile_page);
+        imageView = (ImageView) findViewById(android.R.id.icon);
         setContentView(R.layout.activity_profile_page);
         context = this;
         prefs = this.getSharedPreferences(
@@ -277,5 +287,46 @@ public class profile_page extends AppCompatActivity {
 
         return (day && month && year);
     }
+
+
+
+
+
+
+
+
+        protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+            super.onActivityResult(requestCode, resultCode, data);
+            if (resultCode == RESULT_OK) {
+                Bitmap bitmap = getPath(data.getData());
+                imageView.setImageBitmap(bitmap);
+            }
+        }
+
+        private Bitmap getPath(Uri uri) {
+
+            String[] projection = {MediaStore.Images.Media.DATA};
+            Cursor cursor = managedQuery(uri, projection, null, null, null);
+            int column_index = cursor
+                    .getColumnIndexOrThrow(MediaStore.Images.Media.DATA);
+            cursor.moveToFirst();
+            String filePath = cursor.getString(column_index);
+            // cursor.close();
+            // Convert file path into bitmap image using below line.
+            Bitmap bitmap = BitmapFactory.decodeFile(filePath);
+
+            return bitmap;
+        }
+
+        public void selectImage(View view) {
+
+            Intent intent = new Intent();
+            intent.setType("image/*");
+            intent.setAction(Intent.ACTION_GET_CONTENT);
+            startActivityForResult(Intent.createChooser(intent, "Select Picture"), SELECT_PICTURE);
+        }
+
+
+
 }
 
