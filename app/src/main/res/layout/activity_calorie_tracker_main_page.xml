@@ -51,9 +51,9 @@
 
     <Button
         android:id="@+id/Remove"
-        android:layout_width="128dp"
-        android:layout_height="wrap_content"
-        android:layout_marginBottom="21dp"
+        android:layout_width="149dp"
+        android:layout_height="40dp"
+        android:layout_marginBottom="1dp"
         android:layout_marginEnd="16dp"
         android:onClick="onRemove"
         android:text="@string/remove"
@@ -62,9 +62,9 @@
 
     <Button
         android:id="@+id/add_item"
-        android:layout_width="128dp"
-        android:layout_height="wrap_content"
-        android:layout_marginBottom="16dp"
+        android:layout_width="149dp"
+        android:layout_height="40dp"
+        android:layout_marginBottom="60dp"
         android:layout_marginEnd="16dp"
         android:onClick="onAdd"
         android:text="@string/add"
@@ -73,9 +73,9 @@
 
     <Button
         android:id="@+id/limitBtn"
-        android:layout_width="128dp"
-        android:layout_height="wrap_content"
-        android:layout_marginBottom="16dp"
+        android:layout_width="149dp"
+        android:layout_height="40dp"
+        android:layout_marginBottom="4dp"
         android:layout_marginStart="16dp"
         android:onClick="onLimit"
         android:text="Change Limit"
@@ -84,8 +84,8 @@
 
     <Button
         android:id="@+id/button3"
-        android:layout_width="128dp"
-        android:layout_height="51dp"
+        android:layout_width="147dp"
+        android:layout_height="40dp"
         android:layout_marginBottom="16dp"
         android:layout_marginStart="16dp"
         android:onClick="onReset"
@@ -119,13 +119,13 @@
     <LinearLayout
         android:id="@+id/linearLayout2"
         android:layout_width="401dp"
-        android:layout_height="205dp"
+        android:layout_height="206dp"
         android:layout_marginEnd="4dp"
         android:layout_marginStart="7dp"
-        android:layout_marginTop="16dp"
         android:background="@android:drawable/alert_light_frame"
         android:orientation="vertical"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/frameLayout2">
 
@@ -137,25 +137,21 @@
         <ListView
             android:id="@+id/foodList"
             android:layout_width="match_parent"
-            android:layout_height="match_parent" />
+            android:layout_height="136dp" />
 
 
     </LinearLayout>
 
+
     <Button
         android:id="@+id/button"
-        android:layout_width="104dp"
-        android:layout_height="wrap_content"
-        android:layout_marginBottom="49dp"
-        android:layout_marginEnd="10dp"
-        android:layout_marginStart="9dp"
-        android:layout_marginTop="37dp"
+        android:layout_width="149dp"
+        android:layout_height="40dp"
+        android:layout_marginStart="16dp"
         android:onClick="onHistory"
-        android:text="Consumption History"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toStartOf="@+id/Remove"
-        app:layout_constraintStart_toEndOf="@+id/limitBtn"
-        app:layout_constraintTop_toBottomOf="@+id/linearLayout2" />
+        android:text="Consumed Items"
+        app:layout_constraintBottom_toTopOf="@+id/limitBtn"
+        app:layout_constraintStart_toStartOf="parent" />
 
 
 </android.support.constraint.ConstraintLayout>

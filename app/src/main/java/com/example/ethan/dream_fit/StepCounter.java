@@ -35,7 +35,7 @@ public class StepCounter extends AppCompatActivity implements SensorEventListene
 
     private int stepInt;
     private int limitAmnt;
-    private int burntCal = 0;
+    private int burntCal ;
     private int calLimitToBurn;
     TextView calorieBurntTextView ;
     TextView calorieLimitTextView ;
@@ -105,10 +105,16 @@ public class StepCounter extends AppCompatActivity implements SensorEventListene
                 ++burntCal;
                 calorieBurntTextView.setText(String.valueOf(burntCal));
                 changeBurntCalProg(burntCal, calLimitToBurn);
+                //add to shared preference
+                mEditor.putInt(getString(R.string.calorieToBurnKey),burntCal);                                      //BURNT CALORIES
+                mEditor.commit();                                                                                   //BURNT CALORIES
             }else if (stepInt % 20 == 0){
                 ++burntCal;
                 calorieBurntTextView.setText(String.valueOf(burntCal));
                 changeBurntCalProg(burntCal, calLimitToBurn);
+                //add to shared preference
+                mEditor.putInt(getString(R.string.calorieToBurnKey),burntCal);                                      //BURNT CALORIES
+                mEditor.commit();                                                                                   //BURNT CALORIES
             }
         }
     }
@@ -133,8 +139,8 @@ public class StepCounter extends AppCompatActivity implements SensorEventListene
         limitAmnt = prefs.getInt("stepLimit", 10000);
 
         mEditor.putInt(getString(R.string.calorieToBurnKey),burntCal);                                      //BURNT CALORIES
-        mEditor.commit();                                                                                   //BURNT CALORIES
-
+        mEditor.commit();
+        burntCal= sharedPrefObj.getInt(getString(R.string.calorieToBurnKey),0);//BURNT CALORIES
         calLimitToBurn = sharedPrefObj.getInt(getString(R.string.calorieKey),0);                     //BURNT CALORIES
 
         //tv_step = (TextView) findViewById(R.id.tv_step);                                 //STEP COUNTER
