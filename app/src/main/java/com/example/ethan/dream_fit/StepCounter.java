@@ -154,7 +154,7 @@ public class StepCounter extends AppCompatActivity implements SensorEventListene
             }
         });
 
-        Button resetButton = (Button) findViewById(R.id.reset);
+        Button resetButton = findViewById(R.id.reset);
 
         //prompts class
         resetButton.setOnClickListener(new View.OnClickListener() {
@@ -183,7 +183,7 @@ public class StepCounter extends AppCompatActivity implements SensorEventListene
                                     public void onClick(DialogInterface dialog,int id) {
                                         // get user input and set it to result
                                         // edit text
-                                        prefs.edit().putInt("stepAmnt", 0);
+                                        prefs.edit().putInt("stepAmnt", 0).apply();
                                         stepInt = prefs.getInt("stepAmnt", 0);
                                         TextView textElement = (TextView) findViewById(R.id.sampleText3);
                                         textElement.setText(String.valueOf(stepInt));
