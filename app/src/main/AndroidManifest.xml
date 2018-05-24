@@ -37,7 +37,7 @@
             android:parentActivityName=".MainPage"
             android:screenOrientation="portrait" />
         <activity
-            android:name=".calorie_tracker_add_list"
+            android:name=".calorie_tracker_consumption_History"
             android:parentActivityName=".calorie_tracker_main_page"
             android:screenOrientation="portrait" />
         <activity

@@ -144,7 +144,7 @@
 
 
     <Button
-        android:id="@+id/button"
+        android:id="@+id/storedItem"
         android:layout_width="149dp"
         android:layout_height="40dp"
         android:layout_marginStart="16dp"

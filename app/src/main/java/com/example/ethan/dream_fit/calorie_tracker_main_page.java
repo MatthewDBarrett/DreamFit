@@ -83,7 +83,7 @@ public class calorie_tracker_main_page extends AppCompatActivity {
         Button changeButton = (Button) findViewById(R.id.limitBtn);
 
 
-    //-----------------------------------------------create array List adapter and set it to list view----------------------------------------------------------
+        //-----------------------------------------------create array List adapter and set it to list view----------------------------------------------------------
 
         //1. create an array list and
         //2. populate it through database
@@ -121,7 +121,7 @@ public class calorie_tracker_main_page extends AppCompatActivity {
                 //THis is what Carlos suggested
                 mainListView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
 
-                //----------------------------------------- OnItemClick handler for the list view--------------------------------------------
+                    //----------------------------------------- OnItemClick handler for the list view--------------------------------------------
                     @Override
                     public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
 
@@ -136,12 +136,12 @@ public class calorie_tracker_main_page extends AppCompatActivity {
 
                             int calorie = Integer.parseInt((thisItem.getCalorie()).toString());
 
-                               calorieInt += calorie;
-                              //Update sharedPref
-                              mEditor.putInt(getString(R.string.calorieKey),calorieInt);
-                              mEditor.commit();
+                            calorieInt += calorie;
+                            //Update sharedPref
+                            mEditor.putInt(getString(R.string.calorieKey),calorieInt);
+                            mEditor.commit();
 
-                              changeProgress(calorieInt,limitAmnt);
+                            changeProgress(calorieInt,limitAmnt);
 
                             //Integer newCalorie = sharedPrefObj.getInt(getString(R.string.calorieKey),calorieInt);
 
@@ -264,8 +264,8 @@ public class calorie_tracker_main_page extends AppCompatActivity {
     }
 
     public void onRemove(View view){
-      Intent intent = new Intent(this, calorie_tracker_remove_List.class);
-      startActivity(intent);
+        Intent intent = new Intent(this, calorie_tracker_remove_List.class);
+        startActivity(intent);
     }
 
     public void onLimit(View view){
@@ -319,7 +319,7 @@ public class calorie_tracker_main_page extends AppCompatActivity {
     }
 
     public void onHistory(View view){
-        Intent intent = new Intent(this, calorie_tracker_remove_List.class);
+        Intent intent = new Intent(this, calorie_tracker_consumption_History.class);
         startActivity(intent);
     }
 
@@ -332,58 +332,58 @@ public class calorie_tracker_main_page extends AppCompatActivity {
         //prompts class
 
 
-                // get the view
-                LayoutInflater li = LayoutInflater.from(context);
-                View promptsView = li.inflate(R.layout.warning_reset_2, null);
+        // get the view
+        LayoutInflater li = LayoutInflater.from(context);
+        View promptsView = li.inflate(R.layout.warning_reset_2, null);
 
-                AlertDialog.Builder alertDialogBuilder = new AlertDialog.Builder(
-                        context);
+        AlertDialog.Builder alertDialogBuilder = new AlertDialog.Builder(
+                context);
 
-                // set prompts.xml to alertdialog builder
-                alertDialogBuilder.setView(promptsView);
+        // set prompts.xml to alertdialog builder
+        alertDialogBuilder.setView(promptsView);
 
-                final EditText userInput = (EditText) promptsView
-                        .findViewById(R.id.editTextResult);
+        final EditText userInput = (EditText) promptsView
+                .findViewById(R.id.editTextResult);
 
-                // set dialog message
-                alertDialogBuilder
-                        .setCancelable(false)
-                        .setPositiveButton("OK",
-                                new DialogInterface.OnClickListener() {
-                                    public void onClick(DialogInterface dialog,int id) {
-                                        // get user input and set it to result
-                                        // edit text
-                                        calorieInt = 0;
-                                        limitAmnt = 1000;
+        // set dialog message
+        alertDialogBuilder
+                .setCancelable(false)
+                .setPositiveButton("OK",
+                        new DialogInterface.OnClickListener() {
+                            public void onClick(DialogInterface dialog,int id) {
+                                // get user input and set it to result
+                                // edit text
+                                calorieInt = 0;
+                                limitAmnt = 1000;
 
-                                        //Update the progressbar
-                                        changeProgress(calorieInt,limitAmnt);
+                                //Update the progressbar
+                                changeProgress(calorieInt,limitAmnt);
 
-                                        //update the sharedPreferences
-                                        mEditor.putInt(getString(R.string.calorieKey),calorieInt);
-                                        mEditor.putInt(getString(R.string.limitKey),limitAmnt);
-                                        mEditor.commit();
+                                //update the sharedPreferences
+                                mEditor.putInt(getString(R.string.calorieKey),calorieInt);
+                                mEditor.putInt(getString(R.string.limitKey),limitAmnt);
+                                mEditor.commit();
 
-                                        //clear textField
-                                        calorieAmountTextView.setText("0");
-                                        calorieLimitTextView.setText("1000");
+                                //clear textField
+                                calorieAmountTextView.setText("0");
+                                calorieLimitTextView.setText("1000");
 
-                                    }
-                                })
-                        .setNegativeButton("Cancel",
-                                new DialogInterface.OnClickListener() {
-                                    public void onClick(DialogInterface dialog,int id) {
-                                        dialog.cancel();
-                                    }
-                                });
+                            }
+                        })
+                .setNegativeButton("Cancel",
+                        new DialogInterface.OnClickListener() {
+                            public void onClick(DialogInterface dialog,int id) {
+                                dialog.cancel();
+                            }
+                        });
 
-                // create alert dialog
-                AlertDialog alertDialog = alertDialogBuilder.create();
+        // create alert dialog
+        AlertDialog alertDialog = alertDialogBuilder.create();
 
-                // show it
-                alertDialog.show();
+        // show it
+        alertDialog.show();
 
-            }
+    }
 
 
 
