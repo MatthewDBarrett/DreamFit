@@ -4,15 +4,20 @@ import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.EditText;
+import android.widget.SeekBar;
 import android.widget.TextView;
 import android.widget.Toast;
 
 public class bmi_calculator extends AppCompatActivity {
 
+    private SeekBar progressBar;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_bmi_calculator);
+        progressBar = findViewById(R.id.seekBarBMI);
+        progressBar.setProgress(0);
     }
 
     public void onCalculate(View view){
@@ -21,15 +26,26 @@ public class bmi_calculator extends AppCompatActivity {
         TextView resultText = (TextView) findViewById(R.id.resultText);
 
         double kilogram, centimeter;
-        int bmiResult;
+        float bmiResult;
 
         //(kilogramText.getText().equals(0) && centimeterText.getText().equals(0)){
 
         try{
                 kilogram = Double.parseDouble(kilogramText.getText().toString());
                 centimeter = Double.parseDouble(centimeterText.getText().toString());
-                bmiResult = (int) ((kilogram/(centimeter/100))/(centimeter/100));
+                bmiResult = (float) ((kilogram/(centimeter/100))/(centimeter/100));
                 resultText.setText(String.valueOf(bmiResult));
+
+
+            if (isBetween(bmiResult, 0, 18.5)) {
+                progressBar.setProgress(1);
+            } else if (isBetween(bmiResult, 18.5, 25)) {
+                progressBar.setProgress(2);
+            } else if (isBetween(bmiResult, 25, 30)) {
+                progressBar.setProgress(3);
+            } else if (isBetween(bmiResult, 30,Double.POSITIVE_INFINITY )) {
+                progressBar.setProgress(4);
+            }
 
         }catch(NumberFormatException thisException){
             if((kilogramText.getText().toString()).matches("") && (centimeterText.getText().toString()).matches(""))
@@ -41,5 +57,9 @@ public class bmi_calculator extends AppCompatActivity {
                 Toast.makeText(bmi_calculator.this,"Please Enter your height !",Toast.LENGTH_SHORT).show();
         }
 
+    }
+
+    public static boolean isBetween(double x, double lower, double upper) {
+        return lower <= x && x <= upper;
     }
 }
