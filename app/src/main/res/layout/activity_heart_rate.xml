@@ -13,6 +13,7 @@
     android:paddingTop="16dp"
     tools:context=".heart_rate">
 
+
     <TextView
         android:text="Heart Rate"
         android:layout_width="wrap_content"
