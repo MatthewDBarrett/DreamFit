@@ -72,7 +72,6 @@ public class calorie_tracker_add_list extends AppCompatActivity {
                 itemList.add(thisItem);
 
                 two_Column_ListAdapter adapter = new two_Column_ListAdapter(this,R.layout.adapter_view_layout, itemList);
-
                 mainListView.setAdapter(adapter);
             }
         }

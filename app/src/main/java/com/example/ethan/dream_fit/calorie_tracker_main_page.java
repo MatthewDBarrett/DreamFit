@@ -3,8 +3,10 @@ package com.example.ethan.dream_fit;
 import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.database.Cursor;
 import android.os.Bundle;
+import android.preference.PreferenceManager;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.view.LayoutInflater;
@@ -30,14 +32,15 @@ public class calorie_tracker_main_page extends AppCompatActivity {
     ListView mainListView;
     Item thisItem;
     LayoutInflater layoutinflater;
-    TextView calorieLimit;
-    TextView calorieAmnt;
+    TextView calorieLimitTextView;
+    TextView calorieAmountTextView;
 
     //for circular progress bar
     private int limitAmnt = 1000;
-    private int stepInt = 0;
+    private int calorieInt = 0 ;
+    private SharedPreferences sharedPrefObj;
+    private SharedPreferences.Editor mEditor;
     final Context context = this;
-
 
 
     @Override
@@ -46,24 +49,37 @@ public class calorie_tracker_main_page extends AppCompatActivity {
         setContentView(R.layout.activity_calorie_tracker_main_page);
 
         mainListView = (ListView) findViewById(R.id.foodList);
-        main_DB = new DatabaseHelper_Main(this);
+        main_DB = new DatabaseHelper_Main(context);
+
+
+        //------------------------Shared Preferences-----------------------------------------
+
+        // sharedPrefObj is declarig the Shared.Pref
+        sharedPrefObj = PreferenceManager.getDefaultSharedPreferences(this);
+        // Editor object used as a 'tool' to put items into Share.Pref.
+        mEditor = sharedPrefObj.edit();
+        //check previous Saved Scenario
+
+        Integer storedCalories = sharedPrefObj.getInt(getString(R.string.calorieKey),0);
+        Integer storedLimit = sharedPrefObj.getInt(getString(R.string.limitKey), 1000);
+
+        //Initialize the calorieInt and LimitAmount according to shared Preferences
+        calorieInt = storedCalories;
+        limitAmnt  = storedLimit;
 
         //Initializing the 'limit' and progress of the circular bar
         CircularProgressBar progressBar = findViewById(R.id.progress_bar);
-        progressBar.setProgress((float)(stepInt/limitAmnt));
-        calorieLimit = findViewById(R.id.calorieLimit);
-        calorieAmnt = findViewById(R.id.calorieAmount);
-        calorieLimit.setText(Integer.toString(limitAmnt));
-        calorieAmnt.setText(Integer.toString(stepInt));
+        progressBar.setProgress((float)(calorieInt/limitAmnt));
+
+        calorieLimitTextView = findViewById(R.id.calorieLimit);
+        calorieAmountTextView = findViewById(R.id.calorieAmount);
+        calorieLimitTextView.setText(Integer.toString(limitAmnt));
+        calorieAmountTextView.setText(Integer.toString(calorieInt));
+
         //------------------------------------------OnLimit Handler-----------------------------------------------------------------
 
         //initialise the prompts.
         Button changeButton = (Button) findViewById(R.id.limitBtn);
-
-        //prompts class
-
-     //-----------------------------------------------add Header to the list view----------------------------------------------------------
-
 
 
     //-----------------------------------------------create array List adapter and set it to list view----------------------------------------------------------
@@ -111,17 +127,26 @@ public class calorie_tracker_main_page extends AppCompatActivity {
                         // get the current Index
                         Item thisItem = itemList.get(i);
 
-                         if(stepInt <= limitAmnt){
+                        //Integer storedCalorie = sharedPrefObj.getInt(getString(R.string.calorieKey),calorieInt);
+                        //calorieInt = storedCalorie;
 
-                             Toast.makeText(calorie_tracker_main_page.this, " all calories, Tracked!", Toast.LENGTH_SHORT).show();
+                        if(calorieInt <= limitAmnt){
+                            Toast.makeText(calorie_tracker_main_page.this, " all calories, Tracked!", Toast.LENGTH_SHORT).show();
 
-                             int calorie = Integer.parseInt((thisItem.getCalorie()).toString());
-                             stepInt += calorie;
-                             changeProgress(stepInt,limitAmnt);
-                             calorieAmnt.setText(Integer.toString(stepInt));
-                         }else
-                             Toast.makeText(calorie_tracker_main_page.this, " dogged", Toast.LENGTH_SHORT).show();
+                            int calorie = Integer.parseInt((thisItem.getCalorie()).toString());
 
+                               calorieInt += calorie;
+                              //Update sharedPref
+                              mEditor.putInt(getString(R.string.calorieKey),calorieInt);
+                              mEditor.commit();
+
+                              changeProgress(calorieInt,limitAmnt);
+
+                            //Integer newCalorie = sharedPrefObj.getInt(getString(R.string.calorieKey),calorieInt);
+
+                            calorieAmountTextView.setText(Integer.toString(calorieInt));
+                        }else
+                            Toast.makeText(calorie_tracker_main_page.this, " dogged", Toast.LENGTH_SHORT).show();
 
                     }
                 });
@@ -135,8 +160,16 @@ public class calorie_tracker_main_page extends AppCompatActivity {
 
     @Override
     protected void onResume() {
-        super.onResume();
 
+        super.onResume();
+        CircularProgressBar progressBar = findViewById(R.id.progress_bar);
+        Integer cal = sharedPrefObj.getInt(getString(R.string.calorieKey), 0);
+        calorieAmountTextView.setText(Integer.toString(cal));
+
+        Integer lim = sharedPrefObj.getInt(getString(R.string.limitKey), 1000);
+        calorieLimitTextView.setText(Integer.toString(lim));
+
+        changeProgress(cal,lim);
     }
 
     private void changeProgress(int step, int limit){
@@ -177,8 +210,16 @@ public class calorie_tracker_main_page extends AppCompatActivity {
                                 // get user input and set it to result
                                 // edit text
                                 limitAmnt = Integer.parseInt(userInput.getText().toString());
-                                changeProgress(stepInt, limitAmnt);
-                                calorieLimit.setText(Integer.toString(limitAmnt));
+
+                                //Update the progressbar
+                                changeProgress(calorieInt, limitAmnt);
+
+                                //update the sharedPreferences
+                                mEditor.putInt(getString(R.string.limitKey),limitAmnt);
+                                mEditor.commit();
+
+                                //clear textField
+                                calorieLimitTextView.setText(Integer.toString(limitAmnt));
                             }
                         })
                 .setNegativeButton("Cancel",
@@ -226,9 +267,21 @@ public class calorie_tracker_main_page extends AppCompatActivity {
                                     public void onClick(DialogInterface dialog,int id) {
                                         // get user input and set it to result
                                         // edit text
-                                        stepInt = 0;
-                                        CircularProgressBar progressBar = findViewById(R.id.progress_bar);
-                                        changeProgress(stepInt,limitAmnt);
+                                        calorieInt = 0;
+                                        limitAmnt = 1000;
+
+                                        //Update the progressbar
+                                        changeProgress(calorieInt,limitAmnt);
+
+                                        //update the sharedPreferences
+                                        mEditor.putInt(getString(R.string.calorieKey),calorieInt);
+                                        mEditor.putInt(getString(R.string.limitKey),limitAmnt);
+                                        mEditor.commit();
+
+                                        //clear textField
+                                        calorieAmountTextView.setText("0");
+                                        calorieLimitTextView.setText("1000");
+
                                     }
                                 })
                         .setNegativeButton("Cancel",
