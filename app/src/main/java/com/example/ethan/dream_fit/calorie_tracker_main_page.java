@@ -34,6 +34,7 @@ public class calorie_tracker_main_page extends AppCompatActivity {
     LayoutInflater layoutinflater;
     TextView calorieLimitTextView;
     TextView calorieAmountTextView;
+    two_Column_ListAdapter adapter;
 
     //for circular progress bar
     private int limitAmnt = 1000;
@@ -112,7 +113,7 @@ public class calorie_tracker_main_page extends AppCompatActivity {
                 //Now add items to the array_List called 'itemList'
                 itemList.add(thisItem);
 
-                two_Column_ListAdapter adapter = new two_Column_ListAdapter(this,R.layout.adapter_view_layout, itemList);
+                adapter = new two_Column_ListAdapter(this,R.layout.adapter_view_layout, itemList);
 
 
                 mainListView.setAdapter(adapter);
@@ -223,7 +224,8 @@ public class calorie_tracker_main_page extends AppCompatActivity {
                     addData(thisDescription,thisCalories);
 
                     //adding new data to the historyListView
-                    itemList.add(new Item(thisDescription,thisCalories));
+                    adapter.add((new Item(thisDescription,thisCalories)));
+                    adapter.notifyDataSetChanged();
 
                     //clear out the text fields
                     description.setText("");

@@ -72,7 +72,7 @@ public class StepCounter extends AppCompatActivity implements SensorEventListene
         //calorieLimitTextView.setText(String.valueOf(calLimitToBurn));
         if(burntCal!=0){
             changeBurntCalProg(cal, calLimitToBurn);
-            Toast.makeText(this, " found", Toast.LENGTH_SHORT).show();
+            Toast.makeText(this, "Welcome back!", Toast.LENGTH_SHORT).show();
         }
 
 
@@ -84,6 +84,9 @@ public class StepCounter extends AppCompatActivity implements SensorEventListene
         running = false;
         //if you unregister the hardware will stop detecting steps
         //sensorManager.unregisterListener(this);
+
+
+
     }
 
     @Override
@@ -105,14 +108,7 @@ public class StepCounter extends AppCompatActivity implements SensorEventListene
             * 3. stepInt can be divided by 20 i.e ) One calorie burnt
             **/
 
-            if(stepInt == 20){
-                ++burntCal;
-                calorieBurntTextView.setText(String.valueOf(burntCal));
-                changeBurntCalProg(burntCal, calLimitToBurn);
-                //add to shared preference
-                mEditor.putInt(getString(R.string.calorieToBurnKey),burntCal);                                      //BURNT CALORIES
-                mEditor.commit();                                                                                   //BURNT CALORIES
-            }else if (stepInt % 20 == 0){
+             if (stepInt % 20 == 0){
                 ++burntCal;
                 calorieBurntTextView.setText(String.valueOf(burntCal));
                 changeBurntCalProg(burntCal, calLimitToBurn);

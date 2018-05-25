@@ -85,7 +85,7 @@ public class calorie_tracker_remove_List extends AppCompatActivity {
                                     //remove from main_db
                                     main_DB.removeItem(thisDescription);
                                     //remove item from the array list containing all the items
-                                    itemList.remove(itemToRemove);
+                                    adapter.remove(itemList.get(itemToRemove));
                                     //Notify the adpater
                                      adapter.notifyDataSetChanged();
                                 //----------------------------------------------------
