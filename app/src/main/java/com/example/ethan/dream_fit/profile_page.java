@@ -8,11 +8,13 @@ import android.database.Cursor;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.net.Uri;
+import android.nfc.Tag;
 import android.provider.MediaStore;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.text.InputType;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.AdapterView;
@@ -20,11 +22,14 @@ import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.ListView;
 import android.widget.RadioButton;
-import android.widget.RadioGroup;
 import android.widget.SimpleAdapter;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import java.io.File;
+import java.io.FileInputStream;
+import java.io.FileNotFoundException;
+import java.io.FileOutputStream;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Iterator;
@@ -34,6 +39,7 @@ import java.util.Set;
 
 
 public class profile_page extends AppCompatActivity {
+    private static final String TAG = "File Loading";
     //These need to be Global within the profile_page as they are used in inner classes.
 
     //Shared Preferences and Fields
@@ -71,12 +77,22 @@ public class profile_page extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_profile_page);
-        imageView = (ImageView) findViewById(android.R.id.icon);
-        setContentView(R.layout.activity_profile_page);
         context = this;
+        imageView = findViewById(R.id.profileIcon);
         prefs = this.getSharedPreferences(
                 "com.example.ethan.dream_fit", Context.MODE_PRIVATE);
 
+        //Profile Image initialisation
+        File file = new File("sdcard/Android/data/com.example.ethan.dream_fit/files", "profile.png");
+        try {
+            FileInputStream streamIn = new FileInputStream(file);
+            imageView.setImageBitmap(BitmapFactory.decodeFile(file.getAbsolutePath()));
+            imageView.setScaleType(ImageView.ScaleType.CENTER_CROP);
+            streamIn.close();
+        }
+        catch (Exception e) {
+            Log.v(TAG, "FAILED");
+        }
 
         ListView resultsListView = (ListView) findViewById(R.id.results_listview);
         //Shared Preference Initialisation
@@ -288,18 +304,30 @@ public class profile_page extends AppCompatActivity {
         return (day && month && year);
     }
 
+     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
+        if (resultCode == RESULT_OK) {
+            Uri targetUri = data.getData();
+            Bitmap bitmap = null;
+            imageView = findViewById(R.id.profileIcon);
 
+            try {
+                bitmap = BitmapFactory.decodeStream(getContentResolver().openInputStream(targetUri));
+            } catch (FileNotFoundException e) {
+                Toast.makeText(context, "Image couldn't be applied", Toast.LENGTH_SHORT).show();
+            }
 
-
-
-
-
-
-        protected void onActivityResult(int requestCode, int resultCode, Intent data) {
-            super.onActivityResult(requestCode, resultCode, data);
-            if (resultCode == RESULT_OK) {
-                Bitmap bitmap = getPath(data.getData());
+            try {
+                File file = new File("sdcard/Android/data/com.example.ethan.dream_fit/files/","profile.png");
+                FileOutputStream stream = new FileOutputStream(file);
+                bitmap.compress(Bitmap.CompressFormat.PNG, 100, stream);
+                stream.flush();
+                stream.close();
+            } catch (Exception e) {
+                Log.v(TAG, "Failed");
+            }
                 imageView.setImageBitmap(bitmap);
+                imageView.setScaleType(ImageView.ScaleType.CENTER_CROP);
             }
         }
 

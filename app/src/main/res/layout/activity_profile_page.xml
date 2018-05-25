@@ -6,38 +6,34 @@
     android:layout_height="match_parent"
     tools:context=".profile_page">
 
-    <ImageButton
-        android:id="@+id/profileimg"
-        android:layout_width="143dp"
-        android:layout_height="143dp"
-        android:layout_marginTop="32dp"
-        android:background="@color/calorie_counter_background"
-        android:scaleType="fitCenter"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.498"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="@mipmap/default_profile" />
     <ImageView
-        android:id="@android:id/icon"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
+        android:id="@+id/profileIcon"
+        android:layout_width="225dp"
+        android:layout_height="225dp"
+        android:layout_marginTop="32dp"
         android:layout_weight="1"
+        android:background="@drawable/image_border"
+        android:contentDescription="Change Image"
         android:onClick="selectImage"
-        />
+        android:padding="5dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.497"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
     <RelativeLayout
         android:id="@+id/activity_main"
         android:layout_width="379dp"
-        android:layout_height="399dp"
+        android:layout_height="297dp"
         android:layout_marginBottom="8dp"
         android:layout_marginEnd="8dp"
         android:layout_marginStart="8dp"
-        android:layout_marginTop="21dp"
+        android:layout_marginTop="8dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/profileimg">
+        app:layout_constraintTop_toBottomOf="@+id/profileIcon"
+        app:layout_constraintVertical_bias="0.922">
 
         <ListView
             android:id="@+id/results_listview"
