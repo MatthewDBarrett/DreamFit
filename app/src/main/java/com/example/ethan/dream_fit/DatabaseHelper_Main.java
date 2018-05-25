@@ -74,6 +74,15 @@ public class DatabaseHelper_Main extends SQLiteOpenHelper{
         db.close();
     }
 
+    public void getItem(String description){
+        //Projections
+
+
+        SQLiteDatabase db = this.getWritableDatabase();
+        db.execSQL("DELETE FRO " + TABLE_NAME + " WHERE " + COL2+ "= '" + description+ "'");
+        db.close();
+    }
+
     public Cursor getListContents(){
         //Uses a (select  Query) i.e select all from table
 

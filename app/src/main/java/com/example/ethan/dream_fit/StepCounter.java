@@ -63,13 +63,17 @@ public class StepCounter extends AppCompatActivity implements SensorEventListene
             Toast.makeText(this, "Sensor not found", Toast.LENGTH_SHORT).show();
         }
 
-        //calorieBurntTextView.setText(String.valueOf(burntCal));
         /*
-        calorieLimitTextView.setText(String.valueOf(calLimitToBurn));
-        CircularProgressBar caloriesProgress = findViewById(R.id.calorieBurnt_Bar);
-        if(burntCal!=0)
-        caloriesProgress.setProgress((float)(burntCal/calLimitToBurn));
-         */
+        *   CALORIES TO BURN
+        * */
+
+        Integer cal = sharedPrefObj.getInt(getString(R.string.calorieToBurnKey), 0);
+        calorieBurntTextView.setText(String.valueOf(cal));
+        //calorieLimitTextView.setText(String.valueOf(calLimitToBurn));
+        if(burntCal!=0){
+            changeBurntCalProg(cal, calLimitToBurn);
+            Toast.makeText(this, " found", Toast.LENGTH_SHORT).show();
+        }
 
 
     }
@@ -138,8 +142,8 @@ public class StepCounter extends AppCompatActivity implements SensorEventListene
         stepInt = prefs.getInt("stepAmnt", 0);
         limitAmnt = prefs.getInt("stepLimit", 10000);
 
-        mEditor.putInt(getString(R.string.calorieToBurnKey),burntCal);                                      //BURNT CALORIES
-        mEditor.commit();
+        //mEditor.putInt(getString(R.string.calorieToBurnKey),burntCal);                                      //BURNT CALORIES
+        //mEditor.commit();
         burntCal= sharedPrefObj.getInt(getString(R.string.calorieToBurnKey),0);//BURNT CALORIES
         calLimitToBurn = sharedPrefObj.getInt(getString(R.string.calorieKey),0);                     //BURNT CALORIES
 

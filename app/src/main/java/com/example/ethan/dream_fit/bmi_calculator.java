@@ -46,14 +46,22 @@ public class bmi_calculator extends AppCompatActivity {
                 resultText.setText(String.valueOf(bmiResult));
 
 
-            if (isBetween(bmiResult, 0, 18.5)) {
+            if (isBetween(bmiResult, 0, 13)) {
                 progressBar.setProgress(1);
-            } else if (isBetween(bmiResult, 18.5, 25)) {
+            } else if (isBetween(bmiResult, 13, 18.5)) {
                 progressBar.setProgress(2);
-            } else if (isBetween(bmiResult, 25, 30)) {
+            } else if (isBetween(bmiResult, 18.5, 21.75)){
                 progressBar.setProgress(3);
-            } else if (isBetween(bmiResult, 30,Double.POSITIVE_INFINITY )) {
+            } else if (isBetween(bmiResult, 21.75, 25)) {
                 progressBar.setProgress(4);
+            } else if (isBetween(bmiResult, 25, 27.5)) {
+                progressBar.setProgress(5);
+            } else if (isBetween(bmiResult, 27.5, 30)) {
+                progressBar.setProgress(6);
+            } else if (isBetween(bmiResult, 30, 33.5)) {
+                progressBar.setProgress(7);
+            } else if (isBetween(bmiResult, 33.5,Double.POSITIVE_INFINITY )) {
+                progressBar.setProgress(8);
             }
 
         }catch(NumberFormatException thisException){
