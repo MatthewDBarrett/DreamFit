@@ -136,6 +136,7 @@ public class StepCounter extends AppCompatActivity implements SensorEventListene
 
 
         stepInt = prefs.getInt("stepAmnt", 0);
+        stepInt -= 1;
         limitAmnt = prefs.getInt("stepLimit", 10000);
 
         //mEditor.putInt(getString(R.string.calorieToBurnKey),burntCal);                                      //BURNT CALORIES
