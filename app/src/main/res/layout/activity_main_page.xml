@@ -27,7 +27,8 @@
         app:layout_constraintHorizontal_bias="0.496"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="@mipmap/default_profile_foreground" />
+        app:srcCompat="@mipmap/default_profile_foreground"
+        android:longClickable="true"/>
 
     <LinearLayout
         android:id="@+id/linearLayout"
@@ -52,7 +53,8 @@
             android:scaleType="fitXY"
             app:srcCompat="@mipmap/bmi_calculator"
             tools:layout_editor_absoluteX="250dp"
-            tools:layout_editor_absoluteY="265dp" />
+            tools:layout_editor_absoluteY="265dp"
+            android:longClickable="true"/>
 
         <ImageButton
             android:id="@+id/stepCounter"
@@ -67,7 +69,8 @@
             android:scaleType="fitXY"
             app:layout_constraintStart_toStartOf="parent"
             app:srcCompat="@mipmap/step_counter"
-            tools:layout_editor_absoluteY="265dp" />
+            tools:layout_editor_absoluteY="265dp"
+            android:longClickable="true"/>
 
     </LinearLayout>
 
@@ -93,7 +96,8 @@
             android:scaleType="fitXY"
             app:layout_constraintStart_toStartOf="parent"
             app:srcCompat="@mipmap/calorie_counter"
-            tools:layout_editor_absoluteY="457dp" />
+            tools:layout_editor_absoluteY="457dp"
+            android:longClickable="true"/>
 
         <ImageButton
             android:id="@+id/settingsButton"
@@ -107,7 +111,8 @@
             android:src="@drawable/cog"
             android:text="@string/settings"
             app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent" />
+            app:layout_constraintEnd_toEndOf="parent"
+            android:longClickable="true"/>
 
     </LinearLayout>
 
@@ -133,7 +138,8 @@
             android:scaleType="fitXY"
             app:layout_constraintStart_toStartOf="parent"
             android:src="@drawable/stats"
-            tools:layout_editor_absoluteY="457dp" />
+            tools:layout_editor_absoluteY="457dp"
+            android:longClickable="true"/>
 
         <ImageButton
             android:id="@+id/heart_rate"
@@ -146,7 +152,8 @@
             android:scaleType="fitXY"
             android:src="@drawable/heartrate"
             app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent" />
+            app:layout_constraintEnd_toEndOf="parent"
+            android:longClickable="true"/>
 
     </LinearLayout>
 

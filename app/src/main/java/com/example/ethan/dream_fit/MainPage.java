@@ -9,8 +9,10 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
+import android.widget.AdapterView;
 import android.widget.ImageButton;
 import android.widget.ImageView;
+import android.widget.Toast;
 
 import java.io.File;
 import java.io.FileInputStream;
@@ -26,6 +28,13 @@ public class MainPage extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main_page);
         ImageButton profilePicture = findViewById(R.id.profilePic);
+        ImageButton bmiButton = findViewById(R.id.bmiCalculator);
+        ImageButton stepButton = findViewById(R.id.stepCounter);
+        ImageButton calorieButton = findViewById(R.id.calorieCounter);
+        ImageButton settingsButton = findViewById(R.id.settingsButton);
+        ImageButton statsButton = findViewById(R.id.stats);
+        ImageButton heartButton = findViewById(R.id.heart_rate);
+
         profilePicture.setScaleType(ImageView.ScaleType.FIT_XY);
         profilePicture.setAdjustViewBounds(true);
 
@@ -41,6 +50,63 @@ public class MainPage extends AppCompatActivity {
         }
         alarmService = new Intent(context, alarmService.class);
         context.startService(alarmService);
+
+        profilePicture.setOnLongClickListener(new View.OnLongClickListener() {
+            @Override
+            public boolean onLongClick(View v) {
+                Toast.makeText(context, "Profile Page",
+                        Toast.LENGTH_SHORT).show();
+                return true;
+            }
+        });
+        bmiButton.setOnLongClickListener(new View.OnLongClickListener() {
+            @Override
+            public boolean onLongClick(View v) {
+                Toast.makeText(context, "BMI Calculator",
+                        Toast.LENGTH_SHORT).show();
+                return true;
+            }
+        });
+        stepButton.setOnLongClickListener(new View.OnLongClickListener() {
+            @Override
+            public boolean onLongClick(View v) {
+                Toast.makeText(context, "Step Counter",
+                        Toast.LENGTH_SHORT).show();
+                return true;
+            }
+        });
+        calorieButton.setOnLongClickListener(new View.OnLongClickListener() {
+            @Override
+            public boolean onLongClick(View v) {
+                Toast.makeText(context, "Calorie Counter",
+                        Toast.LENGTH_SHORT).show();
+                return true;
+            }
+        });
+        settingsButton.setOnLongClickListener(new View.OnLongClickListener() {
+            @Override
+            public boolean onLongClick(View v) {
+                Toast.makeText(context, "Settings",
+                        Toast.LENGTH_SHORT).show();
+                return true;
+            }
+        });
+        statsButton.setOnLongClickListener(new View.OnLongClickListener() {
+            @Override
+            public boolean onLongClick(View v) {
+                Toast.makeText(context, "Statistics History",
+                        Toast.LENGTH_SHORT).show();
+                return true;
+            }
+        });
+        heartButton.setOnLongClickListener(new View.OnLongClickListener() {
+            @Override
+            public boolean onLongClick(View v) {
+                Toast.makeText(context, "Heart Rate Monitor",
+                        Toast.LENGTH_SHORT).show();
+                return true;
+            }
+        });
     }
 
     public void openStepCounter(View view){
