@@ -15,7 +15,7 @@
         android:layout_marginTop="68dp"
         android:ems="10"
         android:hint="@string/kilogram_BMI"
-        android:inputType="number|numberSigned"
+        android:inputType="number|numberSigned|numberDecimal"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
@@ -30,7 +30,7 @@
         android:layout_marginTop="132dp"
         android:ems="10"
         android:hint="@string/centimeter_BMI"
-        android:inputType="number|numberSigned"
+        android:inputType="number|numberSigned|numberDecimal"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
@@ -54,7 +54,7 @@
         android:layout_marginStart="16dp"
         android:layout_marginTop="16dp"
         android:text="@string/prompt_BMI"
-        android:textColor="?attr/editTextColor"
+        android:textColor="@color/black"
         android:textSize="24sp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
@@ -142,5 +142,16 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toStartOf="parent" />
+
+    <Button
+        android:id="@+id/myBMI"
+        android:layout_width="111dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="28dp"
+        android:onClick="onMyBMI"
+        android:text="My BMI"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/centimeter" />
 
 </android.support.constraint.ConstraintLayout>

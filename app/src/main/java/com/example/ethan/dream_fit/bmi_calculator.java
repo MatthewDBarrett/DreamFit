@@ -19,7 +19,6 @@ public class bmi_calculator extends AppCompatActivity {
     final Context context = this;
 
 
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -36,6 +35,62 @@ public class bmi_calculator extends AppCompatActivity {
         prefs = context.getSharedPreferences(
                 "com.example.ethan.dream_fit", Context.MODE_PRIVATE);
 
+    }
+
+    public void onMyBMI(View view){
+        EditText kilogramText = (EditText) findViewById(R.id.kilogram);
+        EditText centimeterText = (EditText) findViewById(R.id.centimeter);
+        TextView resultText = (TextView) findViewById(R.id.resultText);
+        prefs = this.getSharedPreferences(
+                "com.example.ethan.dream_fit", Context.MODE_PRIVATE);
+
+        float kilogram = prefs.getFloat("weight", 0);
+        float centimeter = prefs.getFloat("height", 0);
+        float bmiResult;
+
+        //(kilogramText.getText().equals(0) && centimeterText.getText().equals(0)){
+
+        try{
+            kilogramText.setText(Float.toString(kilogram));
+            centimeterText.setText(Float.toString(centimeter));
+            bmiResult = (float) ((kilogram/(centimeter/100))/(centimeter/100));
+            resultText.setText(String.valueOf(bmiResult));
+
+
+            if (isBetween(bmiResult, 0, 13)) {
+                progressBar.setProgress(1);
+            } else if (isBetween(bmiResult, 13, 18.5)) {
+                progressBar.setProgress(2);
+            } else if (isBetween(bmiResult, 18.5, 21.75)){
+                progressBar.setProgress(3);
+            } else if (isBetween(bmiResult, 21.75, 25)) {
+                progressBar.setProgress(4);
+            } else if (isBetween(bmiResult, 25, 27.5)) {
+                progressBar.setProgress(5);
+            } else if (isBetween(bmiResult, 27.5, 30)) {
+                progressBar.setProgress(6);
+            } else if (isBetween(bmiResult, 30, 33.5)) {
+                progressBar.setProgress(7);
+            } else if (isBetween(bmiResult, 33.5,Double.POSITIVE_INFINITY )) {
+                progressBar.setProgress(8);
+            }
+
+        }catch(NumberFormatException thisException){
+            if((kilogramText.getText().toString()).matches("") && (centimeterText.getText().toString()).matches(""))
+                Toast.makeText(bmi_calculator.this,"Please Enter your weight and height",Toast.LENGTH_SHORT).show();
+
+            else if ((kilogramText.getText().toString()).matches(""))
+                Toast.makeText(bmi_calculator.this,"Please Enter your weight !",Toast.LENGTH_SHORT).show();
+            else
+                Toast.makeText(bmi_calculator.this,"Please Enter your height !",Toast.LENGTH_SHORT).show();
+        }
+
+        //To close the virtual keyboard after user clicks the 'On calculate'
+        InputMethodManager inputManager = (InputMethodManager)
+                getSystemService(Context.INPUT_METHOD_SERVICE);
+
+        inputManager.hideSoftInputFromWindow(getCurrentFocus().getWindowToken(),
+                InputMethodManager.HIDE_NOT_ALWAYS);
     }
 
     public void onCalculate(View view){

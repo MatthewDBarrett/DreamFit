@@ -80,7 +80,7 @@ public class stats extends AppCompatActivity {
         thisBarChart.setTouchEnabled(true);
         thisBarChart.setDragEnabled(true);
         thisBarChart.setScaleEnabled(true);
-        thisBarChart.animateY(1000);
+        thisBarChart.animateY(1300);
         thisBarChart.invalidate();
 
 
@@ -110,22 +110,23 @@ public class stats extends AppCompatActivity {
 
         //add Colors to dataset
         ArrayList<Integer> colors = new ArrayList<>();
-        colors.add(Color.CYAN);
-        colors.add(Color.GREEN);
-        colors.add(Color.LTGRAY);
-        colors.add(Color.MAGENTA);
+        colors.add(Color.rgb(105,189,226));
+        colors.add(Color.rgb(48,164,215));
+        colors.add(Color.rgb(34,115,151));
+        colors.add(Color.rgb(188, 188, 188));
 
         //set the colors to pie data set
         thisDataSet.setColors(colors);
+        pieChart.setEntryLabelColor(Color.BLACK);
 
         //add legend to the pie chart
         Legend legend = pieChart.getLegend();
+        pieChart.getLegend().setTextColor(Color.BLACK);
         legend.setForm(Legend.LegendForm.CIRCLE);
-        legend.setTextColor(Color.BLACK);
         //Set piedata
         PieData pieData = new PieData(thisDataSet);
         pieChart.setData(pieData);
-        pieChart.animateY(1000);
+        pieChart.animateY(1300);
         pieChart.notifyDataSetChanged();
         pieChart.invalidate();
 

@@ -24,6 +24,7 @@
         </activity>
         <activity
             android:name=".StepCounter"
+            android:label="Step Counter"
             android:parentActivityName=".MainPage"
             android:screenOrientation="portrait">
 
@@ -34,22 +35,27 @@
         </activity>
         <activity
             android:name=".bmi_calculator"
+            android:label="BMI Calculator"
             android:parentActivityName=".MainPage"
             android:screenOrientation="portrait" />
         <activity
             android:name=".calorie_tracker_consumption_History"
+            android:label="Consumption History"
             android:parentActivityName=".calorie_tracker_main_page"
             android:screenOrientation="portrait" />
         <activity
             android:name=".calorie_tracker_remove_List"
+            android:label="Remove Item"
             android:parentActivityName=".calorie_tracker_main_page"
             android:screenOrientation="portrait" />
         <activity
             android:name=".profile_page"
+            android:label="My Profile"
             android:parentActivityName=".MainPage"
             android:screenOrientation="portrait" />
         <activity
             android:name=".calorie_tracker_main_page"
+            android:label="Calorie Tracker"
             android:parentActivityName=".MainPage"
             android:screenOrientation="portrait" />
 
@@ -71,16 +77,19 @@
 
         <activity
             android:name=".settings_page"
+            android:label="Settings"
             android:parentActivityName=".MainPage"
             android:screenOrientation="portrait" />
         <activity
             android:name=".heart_rate"
+            android:label="Heart Rate Monitor"
             android:parentActivityName=".MainPage"
             android:screenOrientation="portrait"/>
         <activity
             android:name=".stats"
+            android:label="Statistics"
             android:parentActivityName=".MainPage"
-            android:screenOrientation="portrait"></activity>
+            android:screenOrientation="portrait"/>
     </application>
 
 </manifest>
