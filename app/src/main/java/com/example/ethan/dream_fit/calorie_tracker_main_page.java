@@ -6,7 +6,6 @@ import android.content.Intent;
 import android.content.SharedPreferences;
 import android.database.Cursor;
 import android.os.Bundle;
-import android.preference.PreferenceManager;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.view.LayoutInflater;
@@ -57,8 +56,8 @@ public class calorie_tracker_main_page extends AppCompatActivity {
         //------------------------Shared Preferences-----------------------------------------
 
         // sharedPrefObj is declarig the Shared.Pref
-        sharedPrefObj = PreferenceManager.getDefaultSharedPreferences(this);
-        // Editor object used as a 'tool' to put items into Share.Pref.
+        sharedPrefObj = context.getSharedPreferences(
+                "com.example.ethan.dream_fit", Context.MODE_PRIVATE);        // Editor object used as a 'tool' to put items into Share.Pref.
         mEditor = sharedPrefObj.edit();
         //check previous Saved Scenario
 
@@ -140,8 +139,9 @@ public class calorie_tracker_main_page extends AppCompatActivity {
                             calorieInt += calorie;
                             //Update sharedPref
                             mEditor.putInt(getString(R.string.calorieKey),calorieInt);
-                            mEditor.putInt(getString(R.string.Max_calorie_consumed),calorieInt);
-                            mEditor.commit();
+                            mEditor.apply();
+
+                            sharedPrefObj.edit().putInt("Max_calorie_consumed", calorieInt).apply();
 
                             changeProgress(calorieInt,limitAmnt);
 
@@ -301,6 +301,7 @@ public class calorie_tracker_main_page extends AppCompatActivity {
                                 //update the sharedPreferences
                                 mEditor.putInt(getString(R.string.limitKey),limitAmnt);
                                 mEditor.commit();
+                                mEditor.putInt("Max_calorie_consumed", 0).apply();
 
                                 //clear textField
                                 calorieLimitTextView.setText(Integer.toString(limitAmnt));
@@ -365,10 +366,6 @@ public class calorie_tracker_main_page extends AppCompatActivity {
                                 //update the sharedPreferences
                                 mEditor.putInt(getString(R.string.calorieKey),calorieInt);
                                 mEditor.putInt(getString(R.string.limitKey),limitAmnt);
-
-                                //Store Max Calories Burnt
-                                Integer calBurnt = sharedPrefObj.getInt((getString(R.string.calorieToBurnKey)),0);
-                                mEditor.putInt(getString(R.string.Max_calorie_burnt),calBurnt);
 
                                 //Reset everything else
                                 mEditor.putInt(getString(R.string.calorieToBurnKey),0);

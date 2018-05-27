@@ -9,7 +9,6 @@ import android.hardware.SensorEventListener;
 import android.hardware.SensorManager;
 import android.os.Bundle;
 import android.os.CountDownTimer;
-import android.preference.PreferenceManager;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.view.LayoutInflater;
@@ -94,8 +93,6 @@ public class StepCounter extends AppCompatActivity implements SensorEventListene
         //if you unregister the hardware will stop detecting steps
         //sensorManager.unregisterListener(this);
 
-
-
     }
 
     @Override
@@ -124,7 +121,13 @@ public class StepCounter extends AppCompatActivity implements SensorEventListene
                      changeBurntCalProg(burntCal, calLimitToBurn);
                      //add to shared preference
                      mEditor.putInt(getString(R.string.calorieToBurnKey),burntCal);                                      //BURNT CALORIES
-                     mEditor.putInt(getString(R.string.Max_calorie_burnt),burntCal);                                     //Max_calorie_burnt
+
+                     //if(sharedPrefObj.getInt(getString(R.string.Max_calorie_burnt),0) < burntCal){
+
+                     mEditor.putInt(getString(R.string.Max_calorie_burnt),burntCal);                                      //BURNT CALORIES
+
+                      //}
+
                      mEditor.putInt(getString(R.string.Max_Step_count),0);                                        // Max Step count
                      mEditor.putInt(getString(R.string.Min_Step_count),0);                                        // Min Step count
                      mEditor.commit();                                                                                   //BURNT CALORIES
@@ -145,12 +148,16 @@ public class StepCounter extends AppCompatActivity implements SensorEventListene
         prefs = this.getSharedPreferences(
                 "com.example.ethan.dream_fit", Context.MODE_PRIVATE);
 
-        sharedPrefObj = PreferenceManager.getDefaultSharedPreferences(this);                      //BURNT CALORIES
+        sharedPrefObj = context.getSharedPreferences(
+                "com.example.ethan.dream_fit", Context.MODE_PRIVATE);                      //BURNT CALORIES
         mEditor = sharedPrefObj.edit();                                                                  //BURNT CALORIES
 
 
         stepInt = prefs.getInt("stepAmnt", 0);
-        stepInt -= 1;
+
+         stepInt -= 1;
+
+
         limitAmnt = prefs.getInt("stepLimit", 10000);
 
         //mEditor.putInt(getString(R.string.calorieToBurnKey),burntCal);                                      //BURNT CALORIES

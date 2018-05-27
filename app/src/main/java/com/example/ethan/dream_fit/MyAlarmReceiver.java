@@ -37,76 +37,33 @@ public class MyAlarmReceiver extends BroadcastReceiver {
         if(dayOfTheWeek.toLowerCase().contains("Monday".toLowerCase())){
             prefs.edit().putInt("Monday_stepCountStat", stepAmnt).apply();
 
-            if((prefs.getInt("Max_Step_count", 0)) > maxStep){
-                maxStep = (prefs.getInt("Max_Step_count", 0));
-
-            }
-            if((prefs.getInt("Tue_Min_Step_count", 0))< minStep){
-                maxStep = (prefs.getInt("Min_Step_count", 0));
-            }
 
         }else if(dayOfTheWeek.toLowerCase().contains("Tuesday".toLowerCase())){
             prefs.edit().putInt("Tuesday_stepCountStat", stepAmnt).apply();
 
-            if((prefs.getInt("Max_Step_count", 0)) > maxStep){
-                maxStep = (prefs.getInt("Max_Step_count", 0));
-
-            }
-            if((prefs.getInt("Min_Step_count", 0))< minStep){
-                maxStep = (prefs.getInt("Min_Step_count", 0));
-            }
 
         }else if(dayOfTheWeek.toLowerCase().contains("Wednesday".toLowerCase())){
             prefs.edit().putInt("Wednesday_stepCountStat", stepAmnt).apply();
-            if((prefs.getInt("Max_Step_count", 0)) > maxStep){
-                maxStep = (prefs.getInt("Max_Step_count", 0));
 
-            }
-            if((prefs.getInt("Min_Step_count", 0))< minStep){
-                maxStep = (prefs.getInt("Min_Step_count", 0));
-            }
 
         }else if(dayOfTheWeek.toLowerCase().contains("Thursday".toLowerCase())){
             prefs.edit().putInt("Thursday_stepCountStat", stepAmnt).apply();
 
-            if((prefs.getInt("Max_Step_count", 0)) > maxStep){
-                maxStep = (prefs.getInt("Max_Step_count", 0));
 
-            }
-            if((prefs.getInt("Min_Step_count", 0))< minStep){
-                maxStep = (prefs.getInt("Min_Step_count", 0));
-            }
 
         }else if(dayOfTheWeek.toLowerCase().contains("Friday".toLowerCase())){
             prefs.edit().putInt("Friday_stepCountStat", stepAmnt).apply();
 
-            if((prefs.getInt("Max_Step_count", 0)) > maxStep){
-                maxStep = (prefs.getInt("Max_Step_count", 0));
 
-            }
-            if((prefs.getInt("Min_Step_count", 0))< minStep){
-                maxStep = (prefs.getInt("Min_Step_count", 0));
-            }
 
         }else if(dayOfTheWeek.toLowerCase().contains("Saturday".toLowerCase())){
             prefs.edit().putInt("Saturday_stepCountStat", stepAmnt).apply();
-            if((prefs.getInt("Max_Step_count", 0)) > maxStep){
-                maxStep = (prefs.getInt("Max_Step_count", 0));
 
             }
-            if((prefs.getInt("Min_Step_count", 0))< minStep){
-                maxStep = (prefs.getInt("Min_Step_count", 0));
-            }
 
-        }else if(dayOfTheWeek.toLowerCase().contains("Sunday".toLowerCase())){
+        else if(dayOfTheWeek.toLowerCase().contains("Sunday".toLowerCase())){
             prefs.edit().putInt("Sunday_stepCountStat", stepAmnt).apply();
-            if((prefs.getInt("Max_Step_count", 0)) > maxStep){
-                maxStep = (prefs.getInt("Max_Step_count", 0));
 
-            }
-            if((prefs.getInt("Min_Step_count", 0))< minStep){
-                maxStep = (prefs.getInt("Min_Step_count", 0));
-            }
         }
 
         //------------------------------------------------------------------------------------------
@@ -115,7 +72,6 @@ public class MyAlarmReceiver extends BroadcastReceiver {
         //Check Max Calories Burnt
 
         //Check Max Calories consumed
-
 
         // Resetting step count to zero
         prefs.edit().putInt("stepAmnt", 0).apply();

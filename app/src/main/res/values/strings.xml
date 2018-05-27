@@ -16,7 +16,7 @@
     <string name="Max_Step_count">com.example.ethan.dream_fit.maxStep></string>
     <string name="Min_Step_count">com.example.ethan.dream_fit.minStep></string>
     <string name="Max_calorie_burnt">com.example.ethan.dream_fit.maxCalBurnt></string>
-    <string name="Max_calorie_consumed">com.example.ethan.dream_fit.maxCalConsumed></string>
+    <string name="Max_calorie_consumed">com.example.ethan.dream_fit></string>
     <!-- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
     <string name="calorieBurntStat">com.example.ethan.dream_fit.burntCalStat</string>
     <string name="calorieConsumedStat">com.example.ethan.dream_fit.consumedCalStat</string>

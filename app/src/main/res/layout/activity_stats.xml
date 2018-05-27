@@ -6,39 +6,21 @@
     android:layout_height="match_parent"
     tools:context=".stats">
 
-    <ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
-        xmlns:tools="http://schemas.android.com/tools"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        tools:context="applications.simplebargraph.MainActivity">
 
         <LinearLayout
-            android:layout_width ="match_parent"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="vertical">
 
             <com.github.mikephil.charting.charts.BarChart
                 android:id="@+id/bargraph"
-                android:layout_width="match_parent"
-                android:layout_height="278dp"></com.github.mikephil.charting.charts.BarChart>
-
-            <com.github.mikephil.charting.charts.PieChart
-                android:id="@+id/pieChart"
-                android:layout_width="match_parent"
-                android:layout_height="323dp"
-                android:layout_below="@+id/bargraph"
-                android:layout_marginTop="2dp">
-
-            </com.github.mikephil.charting.charts.PieChart>
+                android:layout_width="395dp"
+                android:layout_height="460dp"
+                tools:layout_editor_absoluteX="8dp"
+                tools:layout_editor_absoluteY="410dp"></com.github.mikephil.charting.charts.BarChart>
 
 
         </LinearLayout>
 
-    </ScrollView>
 
 </android.support.constraint.ConstraintLayout>
