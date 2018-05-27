@@ -42,6 +42,7 @@ public class StepCounter extends AppCompatActivity implements SensorEventListene
     TextView calorieLimitTextView ;
     final Context context = this;
     SharedPreferences prefs;
+    int left = 0;
 
     SharedPreferences sharedPrefObj;               //CalorieBurnt
     private SharedPreferences.Editor mEditor;      //CaloriesBurnt
@@ -117,16 +118,19 @@ public class StepCounter extends AppCompatActivity implements SensorEventListene
              if(calLimitToBurn != 0){                                                               //Only Work if cal Limit to burn is not 0
                  if (stepInt % 20 == 0){
                      ++burntCal;
+
                      calorieBurntTextView.setText(String.valueOf(burntCal));
                      changeBurntCalProg(burntCal, calLimitToBurn);
                      //add to shared preference
                      mEditor.putInt(getString(R.string.calorieToBurnKey),burntCal);                                      //BURNT CALORIES
 
                      //if(sharedPrefObj.getInt(getString(R.string.Max_calorie_burnt),0) < burntCal){
+                     prefs.edit().putInt("Max_calorie_burnt",burntCal).apply();                                      //BURNT CALORIES
 
-                     mEditor.putInt(getString(R.string.Max_calorie_burnt),burntCal);                                      //BURNT CALORIES
+                     left = calLimitToBurn - burntCal;
+                     prefs.edit().putInt("left",left).apply();                                      //BURNT CALORIES
 
-                      //}
+                     //}
 
                      mEditor.putInt(getString(R.string.Max_Step_count),0);                                        // Max Step count
                      mEditor.putInt(getString(R.string.Min_Step_count),0);                                        // Min Step count
@@ -182,7 +186,6 @@ public class StepCounter extends AppCompatActivity implements SensorEventListene
         textElement2.setText(String.valueOf(limitAmnt));
         CircularProgressBar progressBar = findViewById(R.id.progress_bar);
         progressBar.setProgress((float)(stepInt/limitAmnt));
-        motivation.setVisibility(INVISIBLE);
 
         /*
         * set the text to the default values and Intialize the progress bar for calories burnt

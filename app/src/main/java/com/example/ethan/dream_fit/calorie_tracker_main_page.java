@@ -369,6 +369,9 @@ public class calorie_tracker_main_page extends AppCompatActivity {
 
                                 //Reset everything else
                                 mEditor.putInt(getString(R.string.calorieToBurnKey),0);
+                                mEditor.putInt("left",0);
+                                mEditor.putInt("Max_calorie_consumed",0);
+                                mEditor.putInt("Max_calorie_burnt",0);
                                 mEditor.commit();
 
                                 //clear textField
