@@ -56,6 +56,10 @@ public class bmi_calculator extends AppCompatActivity {
             bmiResult = (float) ((kilogram/(centimeter/100))/(centimeter/100));
             resultText.setText(String.valueOf(bmiResult));
 
+            int bmi = (int)Math.round(bmiResult);
+            if(bmi != 0) {
+                prefs.edit().putInt("BMI", bmi).apply();
+            }
 
             if (isBetween(bmiResult, 0, 13)) {
                 progressBar.setProgress(1);
