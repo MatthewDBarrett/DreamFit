@@ -96,7 +96,7 @@ public class profile_page extends AppCompatActivity {
 
         ListView resultsListView = (ListView) findViewById(R.id.results_listview);
         //Shared Preference Initialisation
-        name = prefs.getString("name", "<nonamespecified>");
+        name = prefs.getString("name", "<Please Enter a name>");
         height = prefs.getFloat("height", 0);
         weight = prefs.getFloat("weight", 0);
         gender = prefs.getBoolean("gender", true);//Let Male be True, Female be False.
@@ -277,7 +277,7 @@ public class profile_page extends AppCompatActivity {
     }
 
     private void updateAdapter(){
-        userValues.put("Name", prefs.getString("name", "<error>"));
+        userValues.put("Name", prefs.getString("name", "<Please enter a name>"));
         userValues.put("Height", prefs.getFloat("height", 0) + "cm");
         userValues.put("Weight", prefs.getFloat("weight", 0) + "kg");
         userValues.put("Gender", prefs.getBoolean("gender", true) ? "Male" : "Female");
