@@ -328,7 +328,7 @@ public class profile_page extends AppCompatActivity {
             }
                 imageView.setImageBitmap(bitmap);
                 imageView.setScaleType(ImageView.ScaleType.CENTER_CROP);
-                Toast.makeText(context, "Please restart the app to apply changes", Toast.LENGTH_SHORT);
+                Toast.makeText(context, "Please restart the app to apply changes", Toast.LENGTH_SHORT).show();
             }
         }
 
