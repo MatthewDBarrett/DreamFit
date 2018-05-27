@@ -124,6 +124,9 @@ public class StepCounter extends AppCompatActivity implements SensorEventListene
                      changeBurntCalProg(burntCal, calLimitToBurn);
                      //add to shared preference
                      mEditor.putInt(getString(R.string.calorieToBurnKey),burntCal);                                      //BURNT CALORIES
+                     mEditor.putInt(getString(R.string.Max_calorie_burnt),burntCal);                                     //Max_calorie_burnt
+                     mEditor.putInt(getString(R.string.Max_Step_count),0);                                        // Max Step count
+                     mEditor.putInt(getString(R.string.Min_Step_count),0);                                        // Min Step count
                      mEditor.commit();                                                                                   //BURNT CALORIES
                  }
              }

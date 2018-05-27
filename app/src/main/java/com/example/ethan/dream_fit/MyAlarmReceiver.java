@@ -26,45 +26,100 @@ public class MyAlarmReceiver extends BroadcastReceiver {
         Date d = new Date();
         String dayOfTheWeek = sdf.format(d);
 
-
         //Before Resetting to zero, add it to stepCountStat
         Integer stepAmnt = prefs.getInt("stepAmnt",0);
 
+        Integer maxStep = prefs.getInt("Max_Step_count",0);                                        // Max Step count
+        Integer minStep = prefs.getInt("Min_Step_count",0);                                        // Min Step count
+
         //-------------------------------------ADDING DAILY STEP COUNTS-----------------------------
 
-        if(dayOfTheWeek.toLowerCase().contains("Monday".toLowerCase()))
+        if(dayOfTheWeek.toLowerCase().contains("Monday".toLowerCase())){
             prefs.edit().putInt("Monday_stepCountStat", stepAmnt).apply();
 
-        if(dayOfTheWeek.toLowerCase().contains("Tuesday".toLowerCase()))
+            if((prefs.getInt("Max_Step_count", 0)) > maxStep){
+                maxStep = (prefs.getInt("Max_Step_count", 0));
+
+            }
+            if((prefs.getInt("Tue_Min_Step_count", 0))< minStep){
+                maxStep = (prefs.getInt("Min_Step_count", 0));
+            }
+
+        }else if(dayOfTheWeek.toLowerCase().contains("Tuesday".toLowerCase())){
             prefs.edit().putInt("Tuesday_stepCountStat", stepAmnt).apply();
 
-        if(dayOfTheWeek.toLowerCase().contains("Wednesday".toLowerCase()))
-            prefs.edit().putInt("Wednesday_stepCountStat", stepAmnt).apply();
+            if((prefs.getInt("Max_Step_count", 0)) > maxStep){
+                maxStep = (prefs.getInt("Max_Step_count", 0));
 
-        if(dayOfTheWeek.toLowerCase().contains("Thursday".toLowerCase()))
+            }
+            if((prefs.getInt("Min_Step_count", 0))< minStep){
+                maxStep = (prefs.getInt("Min_Step_count", 0));
+            }
+
+        }else if(dayOfTheWeek.toLowerCase().contains("Wednesday".toLowerCase())){
+            prefs.edit().putInt("Wednesday_stepCountStat", stepAmnt).apply();
+            if((prefs.getInt("Max_Step_count", 0)) > maxStep){
+                maxStep = (prefs.getInt("Max_Step_count", 0));
+
+            }
+            if((prefs.getInt("Min_Step_count", 0))< minStep){
+                maxStep = (prefs.getInt("Min_Step_count", 0));
+            }
+
+        }else if(dayOfTheWeek.toLowerCase().contains("Thursday".toLowerCase())){
             prefs.edit().putInt("Thursday_stepCountStat", stepAmnt).apply();
 
-        if(dayOfTheWeek.toLowerCase().contains("Friday".toLowerCase()))
+            if((prefs.getInt("Max_Step_count", 0)) > maxStep){
+                maxStep = (prefs.getInt("Max_Step_count", 0));
+
+            }
+            if((prefs.getInt("Min_Step_count", 0))< minStep){
+                maxStep = (prefs.getInt("Min_Step_count", 0));
+            }
+
+        }else if(dayOfTheWeek.toLowerCase().contains("Friday".toLowerCase())){
             prefs.edit().putInt("Friday_stepCountStat", stepAmnt).apply();
 
-        if(dayOfTheWeek.toLowerCase().contains("Saturday".toLowerCase()))
-            prefs.edit().putInt("Saturday_stepCountStat", stepAmnt).apply();
+            if((prefs.getInt("Max_Step_count", 0)) > maxStep){
+                maxStep = (prefs.getInt("Max_Step_count", 0));
 
-        if(dayOfTheWeek.toLowerCase().contains("Sunday".toLowerCase()))
+            }
+            if((prefs.getInt("Min_Step_count", 0))< minStep){
+                maxStep = (prefs.getInt("Min_Step_count", 0));
+            }
+
+        }else if(dayOfTheWeek.toLowerCase().contains("Saturday".toLowerCase())){
+            prefs.edit().putInt("Saturday_stepCountStat", stepAmnt).apply();
+            if((prefs.getInt("Max_Step_count", 0)) > maxStep){
+                maxStep = (prefs.getInt("Max_Step_count", 0));
+
+            }
+            if((prefs.getInt("Min_Step_count", 0))< minStep){
+                maxStep = (prefs.getInt("Min_Step_count", 0));
+            }
+
+        }else if(dayOfTheWeek.toLowerCase().contains("Sunday".toLowerCase())){
             prefs.edit().putInt("Sunday_stepCountStat", stepAmnt).apply();
+            if((prefs.getInt("Max_Step_count", 0)) > maxStep){
+                maxStep = (prefs.getInt("Max_Step_count", 0));
+
+            }
+            if((prefs.getInt("Min_Step_count", 0))< minStep){
+                maxStep = (prefs.getInt("Min_Step_count", 0));
+            }
+        }
 
         //------------------------------------------------------------------------------------------
 
-        //Check Max step Count and DAY
         //Check Min Step Count and DAY
         //Check Max Calories Burnt
+
         //Check Max Calories consumed
+
 
         // Resetting step count to zero
         prefs.edit().putInt("stepAmnt", 0).apply();
         Log.w("com.example.ethan.dream_fit", "NANI");                                         //STEP COUNTER
-
-
     }
 
     public void SetAlarm(Context context)

@@ -140,6 +140,7 @@ public class calorie_tracker_main_page extends AppCompatActivity {
                             calorieInt += calorie;
                             //Update sharedPref
                             mEditor.putInt(getString(R.string.calorieKey),calorieInt);
+                            mEditor.putInt(getString(R.string.Max_calorie_consumed),calorieInt);
                             mEditor.commit();
 
                             changeProgress(calorieInt,limitAmnt);
@@ -364,6 +365,12 @@ public class calorie_tracker_main_page extends AppCompatActivity {
                                 //update the sharedPreferences
                                 mEditor.putInt(getString(R.string.calorieKey),calorieInt);
                                 mEditor.putInt(getString(R.string.limitKey),limitAmnt);
+
+                                //Store Max Calories Burnt
+                                Integer calBurnt = sharedPrefObj.getInt((getString(R.string.calorieToBurnKey)),0);
+                                mEditor.putInt(getString(R.string.Max_calorie_burnt),calBurnt);
+
+                                //Reset everything else
                                 mEditor.putInt(getString(R.string.calorieToBurnKey),0);
                                 mEditor.commit();
 

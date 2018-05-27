@@ -4,7 +4,7 @@
     <string name="limitKey">com.example.ethan.dream_fit.calorieLimit</string>
     <string name="calorieKey">com.example.ethan.dream_fit.calorieInt</string>
     <string name="calorieToBurnKey">com.example.ethan.dream_fit.burntCal</string>
-    <!-- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
+    <!-- - - - - - - - - - - - - - - - - BAR CHART - - - - - - - - - - - - - - - - -  - - -  - - -->
     <string name="Monday_stepCountStat">com.example.ethan.dream_fit.stepStat</string>
     <string name="Tuesday_stepCountStat">com.example.ethan.dream_fit.stepStat</string>
     <string name="Wednesday_stepCountStat">com.example.ethan.dream_fit.stepStat</string>
@@ -12,8 +12,12 @@
     <string name="Friday_stepCountStat">com.example.ethan.dream_fit.stepStat</string>
     <string name="Saturday_stepCountStat">com.example.ethan.dream_fit.stepStat</string>
     <string name="Sunday_stepCountStat">com.example.ethan.dream_fit.stepStat</string>
-    <!-- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
-
+    <!-- - - - - - - - - - - - - - - - - - PIE CHART - - - - - - - - - - - - - - - - - - - - - - -->
+    <string name="Max_Step_count">com.example.ethan.dream_fit.maxStep></string>
+    <string name="Min_Step_count">com.example.ethan.dream_fit.minStep></string>
+    <string name="Max_calorie_burnt">com.example.ethan.dream_fit.maxCalBurnt></string>
+    <string name="Max_calorie_consumed">com.example.ethan.dream_fit.maxCalConsumed></string>
+    <!-- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
     <string name="calorieBurntStat">com.example.ethan.dream_fit.burntCalStat</string>
     <string name="calorieConsumedStat">com.example.ethan.dream_fit.consumedCalStat</string>
     <string name="step_counter">Step Counter</string>
