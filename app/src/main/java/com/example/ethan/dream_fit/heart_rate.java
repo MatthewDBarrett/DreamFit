@@ -13,9 +13,13 @@ import android.support.v7.app.AppCompatActivity;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import java.text.DecimalFormat;
+import java.text.NumberFormat;
+
 public class heart_rate extends AppCompatActivity implements SensorEventListener, ActivityCompat.OnRequestPermissionsResultCallback{
 
     private static final int REQUEST_BODY_SENSORS = 200;
+    NumberFormat formatter = new DecimalFormat("#0.00");
 
     @Override
     public void onRequestPermissionsResult(int requestCode, String[] permissions, int[] grantResults){
@@ -75,7 +79,8 @@ public class heart_rate extends AppCompatActivity implements SensorEventListener
     @Override
     public void onSensorChanged(SensorEvent event) {
         if(running){
-            tv_heart_rate.setText(String.format("$.2f", event.values[0]));
+//            tv_heart_rate.setText(String.valueOf(event.values[0]));
+            tv_heart_rate.setText(formatter.format(String.valueOf(event.values[0])));
         }
     }
 
