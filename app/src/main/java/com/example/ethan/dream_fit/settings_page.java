@@ -1,6 +1,8 @@
 package com.example.ethan.dream_fit;
 
+import android.content.Context;
 import android.content.DialogInterface;
+import android.content.SharedPreferences;
 import android.database.Cursor;
 import android.os.Bundle;
 import android.support.v7.app.AlertDialog;
@@ -12,11 +14,15 @@ public class settings_page extends AppCompatActivity {
 
     DatabaseHelper myDB;
     DatabaseHelper_Main main_DB;
+    SharedPreferences prefs;
+    final Context context = this;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_settings_page);
+        prefs = context.getSharedPreferences(
+                "com.example.ethan.dream_fit", Context.MODE_PRIVATE);
     }
 
     public void onEmpty(View view){
@@ -58,5 +64,11 @@ public class settings_page extends AppCompatActivity {
             AlertDialog alert11 = builder1.create();
             alert11.show();
         }
+    }
+
+    public void onReset(View view){
+        prefs.edit().putInt("BMI",0).apply();
+        Toast.makeText(settings_page.this, "BMI Cleared", Toast.LENGTH_LONG).show();
+
     }
 }

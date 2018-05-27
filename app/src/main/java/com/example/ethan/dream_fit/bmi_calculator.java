@@ -1,6 +1,7 @@
 package com.example.ethan.dream_fit;
 
 import android.content.Context;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.view.MotionEvent;
@@ -14,6 +15,10 @@ import android.widget.Toast;
 public class bmi_calculator extends AppCompatActivity {
 
     private SeekBar progressBar;
+    SharedPreferences prefs;
+    final Context context = this;
+
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -27,6 +32,10 @@ public class bmi_calculator extends AppCompatActivity {
                 return true;
             }
         });
+
+        prefs = context.getSharedPreferences(
+                "com.example.ethan.dream_fit", Context.MODE_PRIVATE);
+
     }
 
     public void onCalculate(View view){
@@ -43,7 +52,12 @@ public class bmi_calculator extends AppCompatActivity {
                 kilogram = Double.parseDouble(kilogramText.getText().toString());
                 centimeter = Double.parseDouble(centimeterText.getText().toString());
                 bmiResult = (float) ((kilogram/(centimeter/100))/(centimeter/100));
-                resultText.setText(String.valueOf(bmiResult));
+
+                int bmi = (int)Math.round(bmiResult);
+                  prefs.edit().putInt("BMI", bmi).apply();                                      //BURNT CALORIES
+
+
+            resultText.setText(String.valueOf(bmiResult));
 
 
             if (isBetween(bmiResult, 0, 13)) {
