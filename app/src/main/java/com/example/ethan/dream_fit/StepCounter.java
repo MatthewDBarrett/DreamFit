@@ -186,7 +186,6 @@ public class StepCounter extends AppCompatActivity implements SensorEventListene
         textElement2.setText(String.valueOf(limitAmnt));
         CircularProgressBar progressBar = findViewById(R.id.progress_bar);
         progressBar.setProgress((float)(stepInt/limitAmnt));
-        motivation.setVisibility(INVISIBLE);
 
         /*
         * set the text to the default values and Intialize the progress bar for calories burnt
