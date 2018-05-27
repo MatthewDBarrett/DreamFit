@@ -19,7 +19,7 @@ import java.text.NumberFormat;
 public class heart_rate extends AppCompatActivity implements SensorEventListener, ActivityCompat.OnRequestPermissionsResultCallback{
 
     private static final int REQUEST_BODY_SENSORS = 200;
-    NumberFormat formatter = new DecimalFormat("#0.00");
+    NumberFormat formatter = new DecimalFormat("#0.0");
 
     @Override
     public void onRequestPermissionsResult(int requestCode, String[] permissions, int[] grantResults){
@@ -79,8 +79,7 @@ public class heart_rate extends AppCompatActivity implements SensorEventListener
     @Override
     public void onSensorChanged(SensorEvent event) {
         if(running){
-//            tv_heart_rate.setText(String.valueOf(event.values[0]));
-            tv_heart_rate.setText(formatter.format(String.valueOf(event.values[0])));
+            tv_heart_rate.setText(String.valueOf(formatter.format(event.values[0])));
         }
     }
 
