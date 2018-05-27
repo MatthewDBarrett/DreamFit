@@ -110,10 +110,10 @@ public class stats extends AppCompatActivity {
 
         //add Colors to dataset
         ArrayList<Integer> colors = new ArrayList<>();
-        colors.add(Color.CYAN);
-        colors.add(Color.GREEN);
-        colors.add(Color.LTGRAY);
-        colors.add(Color.MAGENTA);
+        colors.add(Color.rgb(105,189,226));
+        colors.add(Color.rgb(48,164,215));
+        colors.add(Color.rgb(34,115,151));
+        colors.add(Color.rgb(62, 69, 81));
 
         //set the colors to pie data set
         thisDataSet.setColors(colors);
