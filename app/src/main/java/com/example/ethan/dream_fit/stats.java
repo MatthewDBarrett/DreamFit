@@ -113,15 +113,16 @@ public class stats extends AppCompatActivity {
         colors.add(Color.rgb(105,189,226));
         colors.add(Color.rgb(48,164,215));
         colors.add(Color.rgb(34,115,151));
-        colors.add(Color.rgb(62, 69, 81));
+        colors.add(Color.rgb(188, 188, 188));
 
         //set the colors to pie data set
         thisDataSet.setColors(colors);
+        pieChart.setEntryLabelColor(Color.BLACK);
 
         //add legend to the pie chart
         Legend legend = pieChart.getLegend();
+        pieChart.getLegend().setTextColor(Color.BLACK);
         legend.setForm(Legend.LegendForm.CIRCLE);
-        legend.setTextColor(Color.BLACK);
         //Set piedata
         PieData pieData = new PieData(thisDataSet);
         pieChart.setData(pieData);
