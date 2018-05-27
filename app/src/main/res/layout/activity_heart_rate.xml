@@ -16,13 +16,15 @@
 
     <TextView
         android:text="Heart Rate"
+        android:textSize="20dp"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:id="@+id/tv_info"/>
 
     <TextView
         android:text="0"
-        android:textSize="40dp"
+        android:textSize="80dp"
+        android:textColor="#ff0000"
         android:layout_marginTop="10dp"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
