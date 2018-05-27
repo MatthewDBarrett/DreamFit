@@ -6,15 +6,15 @@
     android:layout_height="match_parent">
 
     <RelativeLayout
+        android:id="@+id/relativeLayout"
         android:layout_width="401dp"
-        android:layout_height="75dp"
-        android:layout_marginEnd="4dp"
-        android:layout_marginStart="7dp"
+        android:layout_height="74dp"
+        android:layout_marginEnd="16dp"
+        android:layout_marginStart="16dp"
         android:layout_marginTop="16dp"
         android:background="@android:drawable/alert_light_frame"
         android:orientation="vertical"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent">
 
@@ -45,11 +45,11 @@
 
     <ListView
         android:layout_width="367dp"
-        android:layout_height="301dp"
-        android:layout_marginBottom="108dp"
+        android:layout_height="345dp"
+        android:layout_marginBottom="8dp"
         android:layout_marginEnd="8dp"
         android:layout_marginStart="8dp"
-        android:layout_marginTop="102dp"
+        android:layout_marginTop="32dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -59,15 +59,14 @@
         android:id="@+id/linearLayout2"
         android:layout_width="401dp"
         android:layout_height="75dp"
-        android:layout_marginEnd="4dp"
-        android:layout_marginStart="7dp"
-        android:layout_marginTop="100dp"
+        android:layout_marginEnd="16dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="16dp"
         android:background="@android:drawable/alert_light_frame"
         android:orientation="vertical"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent">
+        app:layout_constraintTop_toBottomOf="@+id/relativeLayout">
 
         <EditText
             android:id="@+id/editText"
@@ -88,7 +87,7 @@
             android:layout_height="wrap_content"
             android:layout_alignParentEnd="true"
             android:layout_centerVertical="true"
-            android:layout_marginEnd="21dp"
+            android:layout_marginEnd="24dp"
             android:onClick="onReset"
             android:text="Clear"
             tools:layout_editor_absoluteX="297dp"
