@@ -41,4 +41,6 @@
     <string name="genderprompt">Set gender:</string>
     <string name="DOBprompt">Set date of birth (DD/MM/YYYY):</string>
     <string name="nameprompt">Set Name:</string>
+    <string name="facebook_app_id">605492033149916</string>
+    <string name="fb_login_protocol_scheme">fb605492033149916</string>
 </resources>

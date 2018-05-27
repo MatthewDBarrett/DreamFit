@@ -17,6 +17,8 @@ import android.widget.Toast;
 import java.io.File;
 import java.io.FileInputStream;
 import java.util.Calendar;
+import com.facebook.FacebookSdk;
+import com.facebook.appevents.AppEventsLogger;
 
 public class MainPage extends AppCompatActivity {
     private static final String TAG = "IMAGE LOADING:" ;
@@ -37,6 +39,8 @@ public class MainPage extends AppCompatActivity {
 
         profilePicture.setScaleType(ImageView.ScaleType.FIT_XY);
         profilePicture.setAdjustViewBounds(true);
+        FacebookSdk.sdkInitialize(getApplicationContext());
+        AppEventsLogger.activateApp(this);
 
         File file = new File("sdcard/Android/data/com.example.ethan.dream_fit/files", "profile.png");
         try {

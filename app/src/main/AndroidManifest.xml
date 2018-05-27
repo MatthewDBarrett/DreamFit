@@ -5,6 +5,7 @@
     <uses-permission android:name="android.permission.WAKE_LOCK" />
     <uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED" />
     <uses-permission android:name="android.permission.BODY_SENSORS" />
+    <uses-permission android:name="android.permission.INTERNET"/>
 
     <application
         android:allowBackup="true"
@@ -70,10 +71,6 @@
             android:label="AlarmServiceForDream-Fit" />
 
         <activity
-            android:name=".settings_page"
-            android:parentActivityName=".MainPage"
-            android:screenOrientation="portrait" />
-        <activity
             android:name=".heart_rate"
             android:parentActivityName=".MainPage"
             android:screenOrientation="portrait"/>
@@ -81,6 +78,42 @@
             android:name=".stats"
             android:parentActivityName=".MainPage"
             android:screenOrientation="portrait"></activity>
+
+            <activity android:name=".settings_page"
+                android:parentActivityName=".MainPage"
+                android:screenOrientation="portrait">
+                <intent-filter>
+                    <action android:name="android.intent.action.MAIN" />
+
+                    <category android:name="android.intent.category.LAUNCHER" />
+                </intent-filter>
+            </activity>
+
+        <meta-data android:name="com.facebook.sdk.ApplicationId"
+            android:value="@string/facebook_app_id"/>
+            <activity
+                android:name="com.facebook.FacebookActivity"
+                android:configChanges=
+                    "keyboard|keyboardHidden|screenLayout|screenSize|orientation"
+                android:label="@string/app_name" />
+            <activity
+                android:name="com.facebook.CustomTabActivity"
+                android:exported="true">
+                <intent-filter>
+                    <action android:name="android.intent.action.VIEW" />
+
+                    <category android:name="android.intent.category.DEFAULT" />
+                    <category android:name="android.intent.category.BROWSABLE" />
+
+                    <data android:scheme="@string/fb_login_protocol_scheme" />
+                </intent-filter>
+            </activity>
+        <provider android:authorities="com.facebook.app.FacebookContentProvider{605492033149916}"
+            android:name="com.facebook.FacebookContentProvider"
+            android:exported="true"/>
+
     </application>
+
+
 
 </manifest>
