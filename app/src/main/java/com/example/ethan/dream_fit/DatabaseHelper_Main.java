@@ -74,13 +74,26 @@ public class DatabaseHelper_Main extends SQLiteOpenHelper{
         db.close();
     }
 
-    public void getItem(String description){
-        //Projections
+    public Item getItem(String description){
 
+        boolean result = false;
 
-        SQLiteDatabase db = this.getWritableDatabase();
-        db.execSQL("DELETE FRO " + TABLE_NAME + " WHERE " + COL2+ "= '" + description+ "'");
-        db.close();
+        // Getting single contact
+            SQLiteDatabase db = this.getReadableDatabase();
+
+            Cursor cursor = db.query(TABLE_NAME, new String[] {
+                            COL2, COL3 }, COL2 + "=?",
+                    new String[] { description }, null, null, null, null);
+            //...
+        Item item = null;
+        if (cursor.moveToFirst()) {
+            item = new Item(cursor.getString(2),
+                    cursor.getString(3));
+        }
+        cursor.close();
+        // can return null if no contact was found.
+        return item;
+
     }
 
     public Cursor getListContents(){

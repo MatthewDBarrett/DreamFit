@@ -224,7 +224,7 @@ public class calorie_tracker_main_page extends AppCompatActivity {
                     addData(thisDescription,thisCalories);
 
                     //adding new data to the historyListView
-                    adapter.add((new Item(thisDescription,thisCalories)));
+                    itemList.add((new Item(thisDescription,thisCalories)));
                     adapter.notifyDataSetChanged();
 
                     //clear out the text fields
@@ -364,6 +364,7 @@ public class calorie_tracker_main_page extends AppCompatActivity {
                                 //update the sharedPreferences
                                 mEditor.putInt(getString(R.string.calorieKey),calorieInt);
                                 mEditor.putInt(getString(R.string.limitKey),limitAmnt);
+                                mEditor.putInt(getString(R.string.calorieToBurnKey),0);
                                 mEditor.commit();
 
                                 //clear textField

@@ -95,6 +95,16 @@ public class calorie_tracker_consumption_History extends AppCompatActivity{
                                 String thisDescription = itemList.get(itemToRestrore).getDescription();
                                 String thisCalories = itemList.get(itemToRestrore).getCalorie();
                                 addData(thisDescription,thisCalories);
+
+
+                                /*
+                                   *if(main_DB.getItem(thisDescription) != null)
+                                   *Toast.makeText(calorie_tracker_consumption_History.this, "holy HSist", Toast.LENGTH_LONG).show();
+                                   testing
+                                 */
+
+
+
                                 //Notify the adpater
                                 //adapter.notifyDataSetChanged();
                                 //----------------------------------------------------

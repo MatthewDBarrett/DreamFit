@@ -8,6 +8,7 @@ import android.hardware.SensorEvent;
 import android.hardware.SensorEventListener;
 import android.hardware.SensorManager;
 import android.os.Bundle;
+import android.os.CountDownTimer;
 import android.preference.PreferenceManager;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
@@ -37,6 +38,7 @@ public class StepCounter extends AppCompatActivity implements SensorEventListene
     private int limitAmnt;
     private int burntCal ;
     private int calLimitToBurn;
+    private Toast mToastToShow;
     TextView calorieBurntTextView ;
     TextView calorieLimitTextView ;
     final Context context = this;
@@ -69,12 +71,19 @@ public class StepCounter extends AppCompatActivity implements SensorEventListene
 
         Integer cal = sharedPrefObj.getInt(getString(R.string.calorieToBurnKey), 0);
         calorieBurntTextView.setText(String.valueOf(cal));
-        //calorieLimitTextView.setText(String.valueOf(calLimitToBurn));
-        if(burntCal!=0){
-            changeBurntCalProg(cal, calLimitToBurn);
-            Toast.makeText(this, "Welcome back!", Toast.LENGTH_SHORT).show();
-        }
 
+
+            try{
+                if(calLimitToBurn != 0){
+                      changeBurntCalProg(cal, calLimitToBurn);
+                      calorieLimitTextView.setText(String.valueOf(calLimitToBurn));
+                }
+            }catch(ArithmeticException e){
+                   changeBurntCalProg(cal, 0);
+                   calorieLimitTextView.setText(String.valueOf(0));                                  //If there is an exception then set the progress to 0 with 'Target' to 0
+            }finally {
+                showToast(findViewById(android.R.id.content));
+            }
 
     }
 
@@ -108,14 +117,16 @@ public class StepCounter extends AppCompatActivity implements SensorEventListene
             * 3. stepInt can be divided by 20 i.e ) One calorie burnt
             **/
 
-             if (stepInt % 20 == 0){
-                ++burntCal;
-                calorieBurntTextView.setText(String.valueOf(burntCal));
-                changeBurntCalProg(burntCal, calLimitToBurn);
-                //add to shared preference
-                mEditor.putInt(getString(R.string.calorieToBurnKey),burntCal);                                      //BURNT CALORIES
-                mEditor.commit();                                                                                   //BURNT CALORIES
-            }
+             if(calLimitToBurn != 0){                                                               //Only Work if cal Limit to burn is not 0
+                 if (stepInt % 20 == 0){
+                     ++burntCal;
+                     calorieBurntTextView.setText(String.valueOf(burntCal));
+                     changeBurntCalProg(burntCal, calLimitToBurn);
+                     //add to shared preference
+                     mEditor.putInt(getString(R.string.calorieToBurnKey),burntCal);                                      //BURNT CALORIES
+                     mEditor.commit();                                                                                   //BURNT CALORIES
+                 }
+             }
         }
     }
 
@@ -312,4 +323,28 @@ public class StepCounter extends AppCompatActivity implements SensorEventListene
         }
     }
 
+    public void showToast(View view) {
+        /*
+         *   URL- https://blog.cindypotvin.com/toast-specific-duration-android/
+         */
+
+        // Set the toast and duration
+        int toastDurationInMilliSeconds = 800;
+        mToastToShow = Toast.makeText(this, "Welcome Back!", Toast.LENGTH_LONG);
+
+        // Set the countdown to display the toast
+        CountDownTimer toastCountDown;
+        toastCountDown = new CountDownTimer(toastDurationInMilliSeconds, 1000 /*Tick duration*/) {
+            public void onTick(long millisUntilFinished) {
+                mToastToShow.show();
+            }
+            public void onFinish() {
+                mToastToShow.cancel();
+            }
+        };
+
+        // Show the toast and starts the countdown
+        mToastToShow.show();
+        toastCountDown.start();
+    }
 }

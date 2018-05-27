@@ -4,6 +4,18 @@
     <string name="limitKey">com.example.ethan.dream_fit.calorieLimit</string>
     <string name="calorieKey">com.example.ethan.dream_fit.calorieInt</string>
     <string name="calorieToBurnKey">com.example.ethan.dream_fit.burntCal</string>
+    <!-- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
+    <string name="Monday_stepCountStat">com.example.ethan.dream_fit.stepStat</string>
+    <string name="Tuesday_stepCountStat">com.example.ethan.dream_fit.stepStat</string>
+    <string name="Wednesday_stepCountStat">com.example.ethan.dream_fit.stepStat</string>
+    <string name="Thursday_stepCountStat">com.example.ethan.dream_fit.stepStat</string>
+    <string name="Friday_stepCountStat">com.example.ethan.dream_fit.stepStat</string>
+    <string name="Saturday_stepCountStat">com.example.ethan.dream_fit.stepStat</string>
+    <string name="Sunday_stepCountStat">com.example.ethan.dream_fit.stepStat</string>
+    <!-- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
+
+    <string name="calorieBurntStat">com.example.ethan.dream_fit.burntCalStat</string>
+    <string name="calorieConsumedStat">com.example.ethan.dream_fit.consumedCalStat</string>
     <string name="step_counter">Step Counter</string>
     <string name="BMI_calculator">BMI Calculator</string>
     <string name="progress1">New day, new goals!</string>
@@ -25,5 +37,4 @@
     <string name="genderprompt">Set gender:</string>
     <string name="DOBprompt">Set date of birth (DD/MM/YYYY):</string>
     <string name="nameprompt">Set Name:</string>
-
 </resources>
