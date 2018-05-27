@@ -73,8 +73,14 @@
             android:name=".settings_page"
             android:parentActivityName=".MainPage"
             android:screenOrientation="portrait" />
-        <activity android:name=".heart_rate" />
-        <activity android:name=".stats"></activity>
+        <activity
+            android:name=".heart_rate"
+            android:parentActivityName=".MainPage"
+            android:screenOrientation="portrait"/>
+        <activity
+            android:name=".stats"
+            android:parentActivityName=".MainPage"
+            android:screenOrientation="portrait"></activity>
     </application>
 
 </manifest>

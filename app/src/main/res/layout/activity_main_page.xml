@@ -65,12 +65,12 @@
             android:background="@color/colorPrimary"
             android:contentDescription="@string/step_counter"
             android:cropToPadding="false"
+            android:longClickable="true"
             android:onClick="openStepCounter"
             android:scaleType="fitXY"
+            android:src="@mipmap/step_counter"
             app:layout_constraintStart_toStartOf="parent"
-            app:srcCompat="@mipmap/step_counter"
-            tools:layout_editor_absoluteY="265dp"
-            android:longClickable="true"/>
+            tools:layout_editor_absoluteY="265dp" />
 
     </LinearLayout>
 
