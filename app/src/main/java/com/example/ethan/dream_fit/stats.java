@@ -80,7 +80,7 @@ public class stats extends AppCompatActivity {
         thisBarChart.setTouchEnabled(true);
         thisBarChart.setDragEnabled(true);
         thisBarChart.setScaleEnabled(true);
-        thisBarChart.animateY(1000);
+        thisBarChart.animateY(1300);
         thisBarChart.invalidate();
 
 
@@ -126,7 +126,7 @@ public class stats extends AppCompatActivity {
         //Set piedata
         PieData pieData = new PieData(thisDataSet);
         pieChart.setData(pieData);
-        pieChart.animateY(1000);
+        pieChart.animateY(1300);
         pieChart.notifyDataSetChanged();
         pieChart.invalidate();
 
