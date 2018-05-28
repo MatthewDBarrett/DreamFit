@@ -43,18 +43,6 @@
             tools:layout_editor_absoluteY="90dp" />
     </RelativeLayout>
 
-    <ListView
-        android:layout_width="367dp"
-        android:layout_height="345dp"
-        android:layout_marginBottom="8dp"
-        android:layout_marginEnd="8dp"
-        android:layout_marginStart="8dp"
-        android:layout_marginTop="32dp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/linearLayout2" />
-
     <RelativeLayout
         android:id="@+id/linearLayout2"
         android:layout_width="401dp"
@@ -93,5 +81,18 @@
             tools:layout_editor_absoluteX="297dp"
             tools:layout_editor_absoluteY="90dp" />
     </RelativeLayout>
+
+
+    <com.facebook.login.widget.LoginButton
+        android:id="@+id/login_button"
+        android:layout_width="380dp"
+        android:layout_height="75dp"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginEnd="8dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="8dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/linearLayout2" />
 
 </android.support.constraint.ConstraintLayout>

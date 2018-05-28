@@ -43,4 +43,8 @@
     <string name="nameprompt">Set Name:</string>
     <string name="facebook_app_id">605492033149916</string>
     <string name="fb_login_protocol_scheme">fb605492033149916</string>
+    <string name="firstq"> Step counter not working</string>
+    <string name="firsta"> Please ensure that your location services are on. If it is still not working, please check your settings if this app has permission to use location settings.</string>
+    <string name="secondq">How accurate is the Heart Rate</string>
+    <string name="seconda">The heart rate is only an approximation and cannot be extremely accurate. If you wish for a more accurate reading, please look into heart monitoring equipment</string>
 </resources>
